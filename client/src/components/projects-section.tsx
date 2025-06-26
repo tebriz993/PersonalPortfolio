@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 // Original project image
-import ecommerceImage from "@assets/ECommerceMicroservice.png";
+import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
 
 // New project images
 import JobSearchAppImage from "@assets/JobSearchApp.png";

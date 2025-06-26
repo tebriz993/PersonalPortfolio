@@ -111,6 +111,13 @@ The application follows a full-stack monorepo architecture with clear separation
 - **Bundle analysis**: Production bundle optimization
 
 ## Changelog
+- June 26, 2025. Updated CV download file
+  - Replaced old CV file with new "Tabriz Latifov CV (3).pdf"
+  - Updated public assets folder with the latest CV version
+  - Download CV button in hero section now serves the updated document
+- June 26, 2025. Updated ECommerceMicroservice project image
+  - Replaced with ECommerceMicroservicePicture.png showing organic food e-commerce website
+  - Features vegetables, shopping cart, and "Organic Foods at your Doorsteps" design
 - June 26, 2025. Added professional profile image
   - Moved MyPC3_1750782360229.png from attached_assets to client/src/assets/profile-image.png
   - Updated hero section to display professional photo with city skyline background

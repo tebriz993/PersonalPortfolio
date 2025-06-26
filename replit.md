@@ -112,7 +112,7 @@ The application follows a full-stack monorepo architecture with clear separation
 
 ## Changelog
 - June 26, 2025. Updated CV download file
-  - Replaced old CV file with new "Tabriz Latifov CV (3).pdf"
+  - Replaced old CV file with new "Tabriz Latifov CV (4).pdf"
   - Updated public assets folder with the latest CV version
   - Download CV button in hero section now serves the updated document
 - June 26, 2025. Updated ECommerceMicroservice project image

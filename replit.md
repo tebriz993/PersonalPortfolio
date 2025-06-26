@@ -111,6 +111,11 @@ The application follows a full-stack monorepo architecture with clear separation
 - **Bundle analysis**: Production bundle optimization
 
 ## Changelog
+- June 26, 2025. Added professional profile image
+  - Moved MyPC3_1750782360229.png from attached_assets to client/src/assets/profile-image.png
+  - Updated hero section to display professional photo with city skyline background
+  - Photo shows Tabriz in Tokyo shirt with modern cityscape behind
+  - Enhanced visual appeal of hero section with personal branding
 - June 26, 2025. Enhanced certificate download functionality
   - Added download functionality for 7 certificates and documents:
     * "Will artificial intelligence replace humans?" → Article PDF

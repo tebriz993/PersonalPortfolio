@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Moon, Sun, Menu } from "lucide-react";
 import { useTheme } from "./theme-provider";
+import { trackEvent } from "@/lib/analytics";
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -17,6 +18,9 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (href: string) => {
+    // Track navigation clicks
+    trackEvent('navigation', 'click', href.replace('#', ''));
+    
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -51,7 +55,10 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={toggleTheme}
+              onClick={() => {
+                trackEvent('theme', 'toggle', theme === 'dark' ? 'to_light' : 'to_dark');
+                toggleTheme();
+              }}
               className="hover:bg-muted"
             >
               {theme === "dark" ? (

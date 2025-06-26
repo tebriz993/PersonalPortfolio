@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { TypeAnimation } from "react-type-animation"; // YENİ IMPORT
 import tabrizPhoto from "@/assets/profile-image.png";
+import { trackEvent } from "@/lib/analytics";
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -15,6 +16,9 @@ export function HeroSection() {
   };
 
   const downloadCV = () => {
+    // Track CV download event
+    trackEvent('download', 'cv', 'hero_section');
+    
     const link = document.createElement('a');
     link.href = '/assets/Tabriz-Latifov-CV.pdf';
     link.download = 'Tabriz-Latifov-CV.pdf';
@@ -78,6 +82,7 @@ export function HeroSection() {
               className="text-muted-foreground hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'social_media', 'github')}
             >
               <Github className="h-6 w-6" />
             </a>
@@ -86,6 +91,7 @@ export function HeroSection() {
               className="text-muted-foreground hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'social_media', 'linkedin')}
             >
               <Linkedin className="h-6 w-6" />
             </a>
@@ -94,6 +100,7 @@ export function HeroSection() {
               className="text-muted-foreground hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'social_media', 'email')}
             >
               <Mail className="h-6 w-6" />
             </a>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, BookOpen, ChevronDown, ChevronUp, Download } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 
 const education = [
@@ -135,6 +136,9 @@ export function EducationSection() {
   const [isAchievementsExpanded, setIsAchievementsExpanded] = useState(true);
 
   const downloadFile = (url: string, filename: string) => {
+    // Track certificate download event
+    trackEvent('download', 'certificate', filename.replace(/\.[^/.]+$/, ""));
+    
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;

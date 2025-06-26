@@ -111,6 +111,15 @@ The application follows a full-stack monorepo architecture with clear separation
 - **Bundle analysis**: Production bundle optimization
 
 ## Changelog
+- June 26, 2025. Integrated Google Analytics for visitor tracking
+  - Added comprehensive visitor analytics with Google Analytics 4
+  - Implemented tracking for LinkedIn profile visitors and portfolio visits
+  - Added event tracking for CV downloads, certificate downloads, and social media clicks
+  - Enhanced contact form with submission tracking (success/error events)
+  - Implemented navigation tracking to monitor section engagement
+  - Added theme toggle tracking to understand user preferences
+  - Created analytics utility files for page views and custom events
+  - All tracking events properly labeled for detailed visitor insights
 - June 26, 2025. Updated CV download file
   - Replaced old CV file with new "Tabriz Latifov CV (4).pdf"
   - Updated public assets folder with the latest CV version

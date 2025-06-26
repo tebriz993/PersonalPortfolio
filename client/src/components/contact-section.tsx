@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
+import { trackEvent } from "@/lib/analytics";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -49,6 +50,9 @@ export function ContactSection() {
     try {
       await emailjs.send(serviceId, templateId, formData, publicKey);
 
+      // Track successful contact form submission
+      trackEvent('contact_form', 'submit', 'success');
+
       toast({
         title: "Message Sent!",
         description: "Thank you for your message. I'll get back to you soon.",
@@ -57,6 +61,10 @@ export function ContactSection() {
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error('Failed to send email:', error);
+      
+      // Track failed contact form submission
+      trackEvent('contact_form', 'submit', 'error');
+      
       toast({
         title: "Error!",
         description: "Something went wrong. Please check your details or try again later.",

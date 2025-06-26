@@ -35,7 +35,7 @@ const experiences = [
     current: false,
   },
   {
-    title: "Full Stack Software Team Lead",
+    title: "Full Stack Software Developer",
     company: "DendClub (Hybrid)",
     location: "Azerbaijan",
     period: "10/2024 - 05/2025",

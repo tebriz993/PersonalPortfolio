@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "Full Stack Software Engineer",
     company: "Freelancer",
-    location: "Remote",
+    location: "USA (Remote)",
     period: "05/2025 - Present",
     description:
       "Architecting and implementing end-to-end software solutions, leveraging a microservices backend (C#, .NET) to power engaging and responsive frontend applications built with React.js.",

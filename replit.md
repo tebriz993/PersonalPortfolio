@@ -148,3 +148,4 @@ The application follows a full-stack monorepo architecture with clear separation
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
+Default theme: Dark mode - website should open in dark mode by default.

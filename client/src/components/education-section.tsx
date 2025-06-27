@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, BookOpen, ChevronDown, ChevronUp, Download } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/language-context";
 
 
 const education = [
@@ -132,8 +133,132 @@ const achievements = [
 ];
 
 export function EducationSection() {
+  const { t } = useLanguage();
   const [isEducationExpanded, setIsEducationExpanded] = useState(true);
   const [isAchievementsExpanded, setIsAchievementsExpanded] = useState(true);
+
+  const education = [
+    {
+      title: t.education.degrees.advancedBackend,
+      institution: t.education.institutions.uniser,
+      description: t.education.descriptions.csharpNet,
+      period: "11/2023 - 04/2024",
+      badge: t.common.scholarship,
+    },
+    {
+      title: t.education.degrees.advancedFrontend,
+      institution: t.education.institutions.myMentorship,
+      description: t.education.descriptions.htmlCssReact,
+      period: "06/2024 - 09/2024",
+      badge: t.common.scholarship,
+    },
+    {
+      title: t.education.degrees.backend,
+      institution: t.education.institutions.softwareVillage,
+      description: t.education.descriptions.csharpMvc,
+      period: "07/2023 - 11/2023",
+    },
+    {
+      title: t.education.degrees.computerEngineering,
+      institution: t.education.institutions.bakuEngineering,
+      description: t.education.descriptions.bachelorEn,
+      period: "09/2022 - " + t.common.present,
+    },
+  ];
+
+  const achievements = [
+    {
+      title: t.education.achievements.aiResearch,
+      description: '"Will artificial intelligence replace humans?"',
+      organization: t.education.organizations.britishCongress,
+      period: "07/2024",
+      type: t.education.types.publication,
+      downloadLink: "/assets/Article-AI-by-Tabriz-Latifov.pdf",
+      downloadName: "Article-AI-by-Tabriz-Latifov.pdf",
+    },
+    {
+      title: t.education.achievements.spaceResearch,
+      description: '"The role of Software Architectures in Space Systems"',
+      organization: t.education.organizations.iacFederation,
+      period: t.education.status.pending,
+      type: t.education.types.publication,
+    },
+    {
+      title: t.education.achievements.blockchainResearch,
+      description: '"Application of Blockchain technology in the medical field"',
+      organization: t.education.organizations.scopus,
+      period: t.education.status.pending,
+      type: t.education.types.publication,
+    },
+    {
+      title: t.education.achievements.algorithmsDS,
+      description: "Sorting, Searching, Divide and Conquer",
+      organization: t.education.organizations.stanford,
+      period: t.education.status.completed,
+      type: t.education.types.certificate,
+      downloadLink: "/assets/Stanford-Algorithms-Coursera.pdf",
+      downloadName: "Stanford-Algorithms-Coursera.pdf",
+    },
+    {
+      title: t.education.achievements.csharpProg,
+      description: t.education.types.certificate,
+      organization: t.education.organizations.coursera,
+      period: t.education.status.completed,
+      type: t.education.types.certificate,
+      downloadLink: "/assets/Coursera-CSharp.pdf",
+      downloadName: "Coursera-CSharp.pdf",
+    },
+    {
+      title: t.education.achievements.dataStructure,
+      description: t.education.types.certificate,
+      organization: t.education.organizations.progAcademy,
+      period: t.education.status.completed,
+      type: t.education.types.certificate,
+      downloadLink: "/assets/Data-Structure-Certificate.pdf",
+      downloadName: "Data-Structure-Certificate.pdf",
+    },
+    {
+      title: t.education.achievements.javascript,
+      description: t.education.types.certificate,
+      organization: t.education.organizations.cisco,
+      period: "08/2023",
+      type: t.education.types.certificate,
+      downloadLink: "/assets/CISCO-Certificate.png",
+      downloadName: "CISCO-Certificate.png",
+    },
+    {
+      title: t.education.achievements.climateHackathon,
+      description: t.education.status.secondPlace,
+      organization: t.education.organizations.youthFund,
+      period: "09/2024",
+      type: t.education.types.award,
+    },
+    {
+      title: t.education.achievements.mitPython,
+      description: "Sorting, Searching, Divide and Conquer",
+      organization: t.education.organizations.mit,
+      period: t.education.status.completed,
+      type: t.education.types.certificate,
+      downloadLink: "/assets/MITx-6.00.pdf",
+      downloadName: "MITx-6.00.pdf",
+    },
+    {
+      title: t.education.achievements.cppProg,
+      description: t.education.types.certificate,
+      organization: t.education.organizations.coursera,
+      period: t.education.status.completed,
+      type: t.education.types.certificate,
+      downloadLink: "/assets/Coursera-CPlusPlus.pdf",
+      downloadName: "Coursera-CPlusPlus.pdf",
+    },
+    {
+      title: t.education.achievements.junctionHackathon,
+      description: t.education.status.participated,
+      organization: t.education.organizations.junctionEurope,
+      period: "11/2024",
+      type: t.education.types.award,
+    },
+  ];
 
   const downloadFile = (url: string, filename: string) => {
     // Track certificate download event

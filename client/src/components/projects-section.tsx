@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 // Original project image
 import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
@@ -90,6 +91,7 @@ const featuredProjects = [
 ];
 
 export function ProjectsSection() {
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
@@ -104,7 +106,7 @@ export function ProjectsSection() {
             aria-controls="projects-grid"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Featured Projects
+              {t.projects.title}
             </h2>
             <span className="ml-4">
               {isExpanded ? <ChevronUp className="h-7 w-7" /> : <ChevronDown className="h-7 w-7" />}

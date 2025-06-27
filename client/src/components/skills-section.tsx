@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useLanguage } from "@/contexts/language-context";
 import { Server, Code, Cloud, Database, ChevronDown, ChevronUp } from "lucide-react";
 import { 
   SiSharp, SiDotnet, SiReact, SiJavascript, SiTypescript, 
@@ -89,7 +90,67 @@ const technologies = [
 ];
 
 export function SkillsSection() {
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(true);
+
+  const skillCategories = [
+    {
+      title: t.skills.categories.backend,
+      icon: Server,
+      skills: [
+        { name: "C# & .NET", level: 95 },
+        { name: "ASP.NET Core", level: 90 },
+        { name: "Microservices", level: 85 },
+        { name: "Entity Framework", level: 88 },
+        { name: "RabbitMQ", level: 75 },
+        { name: "Redis", level: 70 },
+        { name: "GraphQL/Swagger/Postman", level: 90 },
+        { name: "Modular Architectures", level: 95 },
+      ],
+    },
+    {
+      title: t.skills.categories.frontend,
+      icon: Code,
+      skills: [
+        { name: "React.js", level: 90 },
+        { name: "JavaScript", level: 92 },
+        { name: "TypeScript", level: 88 },
+        { name: "HTML/CSS", level: 95 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "Responsive Design", level: 90 },
+        { name: "UI/UX Principles", level: 80 },
+        { name: "State Management", level: 85 },
+      ],
+    },
+    {
+      title: t.skills.categories.database,
+      icon: Database,
+      skills: [
+        { name: "PostgreSQL", level: 88 },
+        { name: "MongoDB", level: 80 },
+        { name: "MS SQL Server", level: 85 },
+        { name: "Oracle", level: 75 },
+        { name: "Database Design", level: 90 },
+        { name: "Query Optimization", level: 85 },
+        { name: "Data Modeling", level: 88 },
+        { name: "NoSQL", level: 80 },
+      ],
+    },
+    {
+      title: t.skills.categories.tools,
+      icon: Cloud,
+      skills: [
+        { name: "Docker", level: 85 },
+        { name: "Kubernetes", level: 80 },
+        { name: "AWS/Azure", level: 75 },
+        { name: "Git/GitHub", level: 95 },
+        { name: "CI/CD", level: 80 },
+        { name: "Monitoring", level: 75 },
+        { name: "Terraform", level: 70 },
+        { name: "Testing", level: 85 },
+      ],
+    },
+  ];
 
   return (
     <section id="skills" className="section-padding">
@@ -103,7 +164,7 @@ export function SkillsSection() {
             aria-controls="skills-content"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Technical Skills
+              {t.skills.title}
             </h2>
             <span className="ml-4">
               {isExpanded ? <ChevronUp className="h-7 w-7" /> : <ChevronDown className="h-7 w-7" />}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 const experiences = [
   {
@@ -67,7 +68,38 @@ const experiences = [
 ];
 
 export function ExperienceSection() {
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(true);
+
+  const experiences = [
+    {
+      title: t.experience.positions.fullStackDeveloper,
+      company: t.experience.companies.freelance,
+      location: "USA (Remote)",
+      period: "05/2025 - Present",
+      description: t.experience.descriptions.freelanceDesc,
+      technologies: ["C#", ".NET", "React.js", "JavaScript", "TypeScript", "SQL", "Azure/AWS"],
+      current: true,
+    },
+    {
+      title: t.experience.positions.frontEndDeveloper,
+      company: t.experience.companies.myMentorship,
+      location: "Azerbaijan",
+      period: "06/2024 - 09/2024",
+      description: t.experience.descriptions.myMentorshipDesc,
+      technologies: ["React.js", "TypeScript", "HTML", "CSS", "JavaScript"],
+      current: false,
+    },
+    {
+      title: t.experience.positions.backEndDeveloper,
+      company: t.experience.companies.softwareVillage,
+      location: "Azerbaijan",
+      period: "07/2023 - 11/2023",
+      description: t.experience.descriptions.softwareVillageDesc,
+      technologies: ["C#", ".NET", "MVC", "MVVM", "API"],
+      current: false,
+    },
+  ];
 
   return (
     <section id="experience" className="section-padding bg-muted/50">
@@ -81,7 +113,7 @@ export function ExperienceSection() {
             aria-controls="experience-content"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Work Experience
+              {t.experience.title}
             </h2>
             <span className="ml-4">
               {isExpanded ? <ChevronUp className="h-7 w-7" /> : <ChevronDown className="h-7 w-7" />}

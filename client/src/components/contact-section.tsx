@@ -8,8 +8,10 @@ import { Mail, Phone, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 import { trackEvent } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/language-context";
 
 export function ContactSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",

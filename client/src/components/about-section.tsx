@@ -1,12 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/language-context";
 
 export function AboutSection() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="section-padding">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            About Me
+            {t.about.title}
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -18,43 +20,43 @@ export function AboutSection() {
             </div>
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                As a Full Stack Software Engineer with 3+ years of experience, I specialize in building scalable web applications for a diverse range of clients and projects using C#, .NET, React.js, and cloud services.
+                {t.about.description1}
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I have a proven track record of leading development teams and architecting robust microservice solutions. My expertise spans from backend API development to intuitive frontend interfaces, with a strong focus on clean code and efficient, modular architectures.
+                {t.about.description2}
               </p>
 
               {/* Yenilənmiş Kartlar Bölməsi */}
               <div className="grid grid-cols-2 gap-4">
                 <Card>
                   <CardContent className="p-4 text-center">
+                    <h4 className="text-lg font-bold text-primary">3+</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t.about.yearsExperience}
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-4 text-center">
                     <h4 className="text-lg font-bold text-primary">15+</h4>
                     <p className="text-sm text-muted-foreground">
-                      Completed Projects
+                      {t.about.projectsCompleted}
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-4 text-center">
-                    <h4 className="text-lg font-bold text-primary">AI & ML</h4>
+                    <h4 className="text-lg font-bold text-primary">10+</h4>
                     <p className="text-sm text-muted-foreground">
-                      Continuous Learning
+                      {t.about.technologiesUsed}
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-4 text-center">
-                    <h4 className="text-lg font-bold text-primary">5+</h4>
+                    <h4 className="text-lg font-bold text-primary">100%</h4>
                     <p className="text-sm text-muted-foreground">
-                      Global Conferences
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="p-4 text-center">
-                    <h4 className="text-lg font-bold text-primary">3</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Published Articles
+                      {t.about.satisfiedClients}
                     </p>
                   </CardContent>
                 </Card>

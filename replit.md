@@ -111,6 +111,22 @@ The application follows a full-stack monorepo architecture with clear separation
 - **Bundle analysis**: Production bundle optimization
 
 ## Changelog
+- June 26, 2025. Implemented comprehensive multi-language support system
+  - Added complete translation system for Azerbaijani, Turkish, and English
+  - Created translation files with extensive content coverage for all sections
+  - Implemented language context provider with localStorage persistence
+  - Added language switcher component with flag icons in navigation
+  - Updated all major components to use dynamic translations:
+    * Hero section with animated text in multiple languages
+    * About section with statistics and descriptions
+    * Experience section with job titles and company descriptions
+    * Skills section with categorized technical abilities
+    * Projects section with localized project information
+    * Education section with degrees, institutions, and achievements
+    * Contact section with form labels and success/error messages
+  - Integrated language change tracking with Google Analytics
+  - Set default language to Azerbaijani with browser detection fallback
+  - Language preferences persist across sessions
 - June 26, 2025. Integrated Google Analytics for visitor tracking
   - Added comprehensive visitor analytics with Google Analytics 4
   - Implemented tracking for LinkedIn profile visitors and portfolio visits

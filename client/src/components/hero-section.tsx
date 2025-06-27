@@ -6,10 +6,9 @@ import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import tabrizPhoto from "@/assets/profile-image.png";
 import { trackEvent } from "@/lib/analytics";
-import { useLanguage } from "@/contexts/language-context";
+
 
 export function HeroSection() {
-  const { t } = useLanguage();
   
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
@@ -48,11 +47,11 @@ export function HeroSection() {
           <div className="mb-4 text-xl md:text-2xl font-semibold min-h-[64px] flex items-center justify-center">
             <TypeAnimation
               sequence={[
-                t.hero.greeting,
+                "Hi, I'm Tabriz!",
                 1000,
-                t.hero.title,
+                "Full Stack Software Engineer",
                 1000,
-                t.hero.description,
+                "Building innovative web solutions",
                 1500,
               ]}
               wrapper="span"
@@ -64,16 +63,17 @@ export function HeroSection() {
 
 
           <p className="text-lg mb-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-            {t.hero.description}
+            I'm a passionate software engineer with expertise in modern web technologies. 
+            I love creating innovative solutions that make a difference.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button onClick={scrollToContact} size="lg" className="px-8">
-              {t.hero.contactMe}
+              Contact Me
             </Button>
             <Button variant="outline" size="lg" className="px-8" onClick={downloadCV}>
               <Download className="mr-2 h-4 w-4" />
-              {t.hero.downloadCV}
+              Download CV
             </Button>
           </div>
 

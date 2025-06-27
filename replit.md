@@ -111,22 +111,21 @@ The application follows a full-stack monorepo architecture with clear separation
 - **Bundle analysis**: Production bundle optimization
 
 ## Changelog
-- June 26, 2025. Implemented comprehensive multi-language support system
-  - Added complete translation system for Azerbaijani, Turkish, and English
-  - Created translation files with extensive content coverage for all sections
-  - Implemented language context provider with localStorage persistence
-  - Added language switcher component with flag icons in navigation
-  - Updated all major components to use dynamic translations:
-    * Hero section with animated text in multiple languages
-    * About section with statistics and descriptions
-    * Experience section with job titles and company descriptions
-    * Skills section with categorized technical abilities
-    * Projects section with localized project information
-    * Education section with degrees, institutions, and achievements
-    * Contact section with form labels and success/error messages
-  - Integrated language change tracking with Google Analytics
-  - Set default language to Azerbaijani with browser detection fallback
-  - Language preferences persist across sessions
+- June 27, 2025. Reverted to English-only portfolio
+  - Removed multi-language support system as requested by user
+  - Restored all components to clean English-only versions
+  - Removed language context provider and translation files
+  - Removed language switcher from navigation
+  - All sections now display in English with improved content:
+    * Hero section with professional introduction and animated text
+    * About section with clear statistics and descriptions
+    * Experience section with detailed job descriptions
+    * Skills section with comprehensive technical abilities
+    * Projects section with project descriptions and technologies
+    * Education section with degrees, institutions, and downloadable certificates
+    * Contact section with working contact form
+  - Maintained Google Analytics tracking for visitor insights
+  - Preserved dark mode as default theme preference
 - June 26, 2025. Integrated Google Analytics for visitor tracking
   - Added comprehensive visitor analytics with Google Analytics 4
   - Implemented tracking for LinkedIn profile visitors and portfolio visits

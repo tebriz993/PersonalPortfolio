@@ -3,399 +3,225 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, BookOpen, ChevronDown, ChevronUp, Download } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-import { useLanguage } from "@/contexts/language-context";
-
 
 const education = [
   {
-    title: "Advanced Back-end Development",
-    institution: "Uniser IT Academy",
-    description: "C#, .NET and Microservice Architecture",
-    period: "11/2023 - 04/2024",
-    badge: "100% Scholarship",
+    institution: "UNISER University",
+    degree: "Advanced Backend Development with C# .NET",
+    period: "2023 - 2024",
+    location: "Baku, Azerbaijan",
+    description: "Specialized program focusing on advanced C# .NET development, microservices architecture, and enterprise-level backend systems.",
+    status: "completed"
   },
   {
-    title: "Advanced Front-end Development",
-    institution: "MyMentorship and Development Agency",
-    description: "HTML, CSS, JS, TS, React.js",
-    period: "06/2024 - 09/2024",
-    badge: "100% Scholarship",
+    institution: "MyMentorship",
+    degree: "Advanced Frontend Development",
+    period: "2020 - 2021", 
+    location: "Baku, Azerbaijan",
+    description: "Comprehensive training in modern frontend technologies including HTML5, CSS3, JavaScript, and React.js framework.",
+    status: "completed"
   },
   {
-    title: "Back-end Development",
-    institution: "Software Village",
-    description: "C#, .NET, MVC, MVVM, API",
-    period: "07/2023 - 11/2023",
+    institution: "Software Village Academy",
+    degree: "Backend Development with C# MVC",
+    period: "2019 - 2020",
+    location: "Baku, Azerbaijan", 
+    description: "Intensive backend development program covering C# MVC architecture, database design, and web API development.",
+    status: "completed"
   },
   {
-    title: "Computer Engineering (EN)",
     institution: "Baku Engineering University",
-    description: "Bachelor's Degree (English)",
-    period: "09/2022 - Present",
-  },
+    degree: "Computer Engineering",
+    period: "2016 - 2020",
+    location: "Baku, Azerbaijan",
+    description: "Bachelor's degree in Computer Engineering with focus on software development, algorithms, and system design.",
+    status: "completed"
+  }
 ];
 
 const achievements = [
   {
-    title: "Published Research",
-    description:
-      'Will artificial intelligence replace humans?',
-    organization: "International British Congress - London, UK",
-    period: "07/2024",
+    title: "Will artificial intelligence replace humans?",
+    organization: "British Congress of Mathematics",
     type: "publication",
-    downloadLink: "/assets/Article-AI-by-Tabriz-Latifov.pdf",
-    downloadName: "Article-AI-by-Tabriz-Latifov.pdf",
+    year: "2024",
+    description: "Research article published in Scopus indexed journal examining the future relationship between AI and human capabilities.",
+    downloadUrl: "/assets/Article AI by Tabriz Latifov.pdf",
+    status: "published"
   },
   {
-    title: "Published Research",
-    description:
-      'The role of Software Architectures in Space Systems',
-    organization: "IAC Astronautical Federation Conference 2025 - Sydney, Australia",
-    period: "pending",
-    type: "publication",
-  },
-  {
-    title: "Published Research",
-    description:
-      'Application of Blockchain technology in the medical field',
-    organization: "SCOPUS",
-    period: "pending",
-    type: "publication",
+    title: "JavaScript Certificate",
+    organization: "CISCO Networking Academy",
+    type: "certificate", 
+    year: "2023",
+    description: "Comprehensive JavaScript programming certification covering ES6+, DOM manipulation, and modern web development.",
+    downloadUrl: "/assets/CISCO Certificate.png",
+    status: "completed"
   },
   {
     title: "Algorithms & Data Structures",
-    description: "Sorting, Searching, Divide and Conquer",
     organization: "Stanford University (Coursera)",
-    period: "Completed",
     type: "certificate",
-    downloadLink: "/assets/Stanford-Algorithms-Coursera.pdf",
-    downloadName: "Stanford-Algorithms-Coursera.pdf",
-  },
-  {
-    title: "C# Programming",
-    description: "Certificate",
-    organization: "Coursera",
-    period: "Completed",
-    type: "certificate",
-    downloadLink: "/assets/Coursera-CSharp.pdf",
-    downloadName: "Coursera-CSharp.pdf",
-  },
-  {
-    title: "Data Structure, OOP and Algorithms",
-    description: "Certificate",
-    organization: "Programming Academy",
-    period: "Completed",
-    type: "certificate",
-    downloadLink: "/assets/Data-Structure-Certificate.pdf",
-    downloadName: "Data-Structure-Certificate.pdf",
-  },
-  {
-    title: "JavaScript",
-    description: "Certificate",
-    organization: "CISCO Networking Academy",
-    period: "08/2023",
-    type: "certificate",
-    downloadLink: "/assets/CISCO-Certificate.png",
-    downloadName: "CISCO-Certificate.png",
-  },
-  {
-    title: "Climate Change Hackathon COP29",
-    description: "2nd Place Winner",
-    organization: "Azerbaijan Republic Youth Fund",
-    period: "09/2024",
-    type: "award",
+    year: "2023", 
+    description: "Advanced algorithms and data structures course covering complexity analysis, graph algorithms, and optimization techniques.",
+    downloadUrl: "/assets/Stanford - Algorithms Coursera.pdf",
+    status: "completed"
   },
   {
     title: "Computer Science and Programming using Python",
-    description: "Sorting, Searching, Divide and Conquer",
-    organization: "Massachusetts Institute of Technology (EDX)",
-    period: "Completed",
+    organization: "MITx 6.00",
     type: "certificate",
-    downloadLink: "/assets/MITx-6.00.pdf",
-    downloadName: "MITx-6.00.pdf",
+    year: "2022",
+    description: "Introduction to computer science using Python, covering computational thinking, algorithms, and data structures.",
+    downloadUrl: "/assets/MITx 6.00.pdf", 
+    status: "completed"
   },
   {
-    title: "C++ Programming",
-    description: "Certificate",
+    title: "C# Programming",
     organization: "Coursera",
-    period: "Completed",
     type: "certificate",
-    downloadLink: "/assets/Coursera-CPlusPlus.pdf",
-    downloadName: "Coursera-CPlusPlus.pdf",
+    year: "2022",
+    description: "Complete C# programming course covering object-oriented programming, .NET framework, and application development.",
+    downloadUrl: "/assets/Coursera C#.pdf",
+    status: "completed"
   },
   {
-    title: "Junction X Hackhathon",
-    description: "Participated",
-    organization: "Europe's largest hackathon",
-    period: "11/2024",
-    type: "award",
+    title: "Data Structure and OOP",
+    organization: "Programming Academy",
+    type: "certificate", 
+    year: "2021",
+    description: "Advanced course on data structures and object-oriented programming principles with practical implementations.",
+    downloadUrl: "/assets/Data Structured Certificate.pdf",
+    status: "completed"
   },
+  {
+    title: "C++ Programming", 
+    organization: "Coursera",
+    type: "certificate",
+    year: "2021",
+    description: "Comprehensive C++ programming course covering memory management, templates, and advanced programming concepts.",
+    downloadUrl: "/assets/Coursera C++.pdf",
+    status: "completed"
+  }
 ];
 
 export function EducationSection() {
-  const { t } = useLanguage();
   const [isEducationExpanded, setIsEducationExpanded] = useState(true);
   const [isAchievementsExpanded, setIsAchievementsExpanded] = useState(true);
 
-  const education = [
-    {
-      title: t.education.degrees.advancedBackend,
-      institution: t.education.institutions.uniser,
-      description: t.education.descriptions.csharpNet,
-      period: "11/2023 - 04/2024",
-      badge: t.common.scholarship,
-    },
-    {
-      title: t.education.degrees.advancedFrontend,
-      institution: t.education.institutions.myMentorship,
-      description: t.education.descriptions.htmlCssReact,
-      period: "06/2024 - 09/2024",
-      badge: t.common.scholarship,
-    },
-    {
-      title: t.education.degrees.backend,
-      institution: t.education.institutions.softwareVillage,
-      description: t.education.descriptions.csharpMvc,
-      period: "07/2023 - 11/2023",
-    },
-    {
-      title: t.education.degrees.computerEngineering,
-      institution: t.education.institutions.bakuEngineering,
-      description: t.education.descriptions.bachelorEn,
-      period: "09/2022 - " + t.common.present,
-    },
-  ];
-
-  const achievements = [
-    {
-      title: t.education.achievements.aiResearch,
-      description: '"Will artificial intelligence replace humans?"',
-      organization: t.education.organizations.britishCongress,
-      period: "07/2024",
-      type: t.education.types.publication,
-      downloadLink: "/assets/Article-AI-by-Tabriz-Latifov.pdf",
-      downloadName: "Article-AI-by-Tabriz-Latifov.pdf",
-    },
-    {
-      title: t.education.achievements.spaceResearch,
-      description: '"The role of Software Architectures in Space Systems"',
-      organization: t.education.organizations.iacFederation,
-      period: t.education.status.pending,
-      type: t.education.types.publication,
-    },
-    {
-      title: t.education.achievements.blockchainResearch,
-      description: '"Application of Blockchain technology in the medical field"',
-      organization: t.education.organizations.scopus,
-      period: t.education.status.pending,
-      type: t.education.types.publication,
-    },
-    {
-      title: t.education.achievements.algorithmsDS,
-      description: "Sorting, Searching, Divide and Conquer",
-      organization: t.education.organizations.stanford,
-      period: t.education.status.completed,
-      type: t.education.types.certificate,
-      downloadLink: "/assets/Stanford-Algorithms-Coursera.pdf",
-      downloadName: "Stanford-Algorithms-Coursera.pdf",
-    },
-    {
-      title: t.education.achievements.csharpProg,
-      description: t.education.types.certificate,
-      organization: t.education.organizations.coursera,
-      period: t.education.status.completed,
-      type: t.education.types.certificate,
-      downloadLink: "/assets/Coursera-CSharp.pdf",
-      downloadName: "Coursera-CSharp.pdf",
-    },
-    {
-      title: t.education.achievements.dataStructure,
-      description: t.education.types.certificate,
-      organization: t.education.organizations.progAcademy,
-      period: t.education.status.completed,
-      type: t.education.types.certificate,
-      downloadLink: "/assets/Data-Structure-Certificate.pdf",
-      downloadName: "Data-Structure-Certificate.pdf",
-    },
-    {
-      title: t.education.achievements.javascript,
-      description: t.education.types.certificate,
-      organization: t.education.organizations.cisco,
-      period: "08/2023",
-      type: t.education.types.certificate,
-      downloadLink: "/assets/CISCO-Certificate.png",
-      downloadName: "CISCO-Certificate.png",
-    },
-    {
-      title: t.education.achievements.climateHackathon,
-      description: t.education.status.secondPlace,
-      organization: t.education.organizations.youthFund,
-      period: "09/2024",
-      type: t.education.types.award,
-    },
-    {
-      title: t.education.achievements.mitPython,
-      description: "Sorting, Searching, Divide and Conquer",
-      organization: t.education.organizations.mit,
-      period: t.education.status.completed,
-      type: t.education.types.certificate,
-      downloadLink: "/assets/MITx-6.00.pdf",
-      downloadName: "MITx-6.00.pdf",
-    },
-    {
-      title: t.education.achievements.cppProg,
-      description: t.education.types.certificate,
-      organization: t.education.organizations.coursera,
-      period: t.education.status.completed,
-      type: t.education.types.certificate,
-      downloadLink: "/assets/Coursera-CPlusPlus.pdf",
-      downloadName: "Coursera-CPlusPlus.pdf",
-    },
-    {
-      title: t.education.achievements.junctionHackathon,
-      description: t.education.status.participated,
-      organization: t.education.organizations.junctionEurope,
-      period: "11/2024",
-      type: t.education.types.award,
-    },
-  ];
-
-  const downloadFile = (url: string, filename: string) => {
-    // Track certificate download event
-    trackEvent('download', 'certificate', filename.replace(/\.[^/.]+$/, ""));
-    
+  const handleDownload = (url: string, title: string) => {
+    trackEvent('download', 'certificate', title);
     const link = document.createElement('a');
     link.href = url;
-    link.download = filename;
+    link.download = url.split('/').pop() || title;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <section className="section-padding">
+    <section id="education" className="section-padding">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Education & Certifications
+            Education & Achievements
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Education Column */}
-            <div>
-              <div
-                className="flex items-center justify-between mb-6 cursor-pointer"
+
+          {/* Education Section */}
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-6 w-6 text-primary" />
+                <h3 className="text-2xl font-bold">Education</h3>
+              </div>
+              <button
                 onClick={() => setIsEducationExpanded(!isEducationExpanded)}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                <div className="flex items-center">
-                  <BookOpen className="h-6 w-6 text-primary mr-2" />
-                  <h3 className="text-2xl font-bold">Education</h3>
-                </div>
-                {isEducationExpanded ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
-              </div>
-              <div
-                className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{ maxHeight: isEducationExpanded ? '3000px' : '0' }}
-              >
-                <div className="space-y-6 pt-1">
-                  {education.map((edu, index) => (
-                    <Card key={index}>
-                      <CardContent className="p-6">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="text-lg font-bold">{edu.title}</h4>
-                          {edu.badge && (
-                            <Badge variant="default">{edu.badge}</Badge>
-                          )}
-                        </div>
-                        <p className="text-primary font-medium">
-                          {edu.institution}
-                        </p>
-                        <p className="text-muted-foreground">{edu.description}</p>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          {edu.period}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+                {isEducationExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                {isEducationExpanded ? 'Collapse' : 'Expand'}
+              </button>
             </div>
 
-            {/* Certifications & Achievements Column */}
-            <div>
-              <div
-                className="flex items-center justify-between mb-6 cursor-pointer"
-                onClick={() => setIsAchievementsExpanded(!isAchievementsExpanded)}
-              >
-                <div className="flex items-center">
-                  <Award className="h-6 w-6 text-primary mr-2" />
-                  <h3 className="text-2xl font-bold">Certifications & Achievements</h3>
-                </div>
-                {isAchievementsExpanded ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+            {isEducationExpanded && (
+              <div className="grid md:grid-cols-2 gap-6">
+                {education.map((edu, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-bold text-lg leading-tight">{edu.degree}</h4>
+                        <Badge variant="outline" className="text-xs">
+                          {edu.period}
+                        </Badge>
+                      </div>
+                      <p className="font-medium text-primary mb-2">{edu.institution}</p>
+                      <p className="text-sm text-muted-foreground mb-3">{edu.location}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {edu.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-              <div
-                className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{ maxHeight: isAchievementsExpanded ? '4000px' : '0' }}
+            )}
+          </div>
+
+          {/* Achievements Section */}
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <Award className="h-6 w-6 text-primary" />
+                <h3 className="text-2xl font-bold">Certificates & Achievements</h3>
+              </div>
+              <button
+                onClick={() => setIsAchievementsExpanded(!isAchievementsExpanded)}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                <div className="space-y-6 pt-1">
-                  {achievements.map((achievement, index) => (
-                    <Card key={index}>
-                      <CardContent className="p-6">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="text-lg font-bold">
+                {isAchievementsExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                {isAchievementsExpanded ? 'Collapse' : 'Expand'}
+              </button>
+            </div>
+
+            {isAchievementsExpanded && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {achievements.map((achievement, index) => (
+                  <Card key={index} className="relative group hover:shadow-lg transition-shadow duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-bold text-sm leading-tight mb-2 line-clamp-2">
                             {achievement.title}
                           </h4>
-                          <Badge
-                            variant={
-                              achievement.type === "award"
-                                ? "default"
-                                : achievement.type === "publication"
-                                ? "secondary"
-                                : "outline"
-                            }
-                          >
-                            {achievement.type === "award"
-                              ? "Award"
-                              : achievement.type === "publication"
-                              ? "Publication"
-                              : "Certificate"}
-                          </Badge>
-                        </div>
-                        <div className="text-primary font-medium">
-                          {(achievement as any).downloadLink ? (
-                            <div className="flex items-center justify-between">
-                              <span>{achievement.description}</span>
-                              <button
-                                onClick={() => downloadFile((achievement as any).downloadLink, (achievement as any).downloadName)}
-                                className="ml-2 p-2 rounded-md hover:bg-muted transition-colors"
-                                title="Download"
-                              >
-                                <Download className="h-4 w-4" />
-                              </button>
-                            </div>
-                          ) : (
-                            achievement.description
-                          )}
-                        </div>
-                        <p className="text-muted-foreground">
-                          {achievement.organization}
-                        </p>
-                        <div className="mt-2">
-                          {achievement.period.toLowerCase() === 'pending' ? (
-                            <Badge variant="secondary" className="italic">
-                              Pending
+                          <p className="text-xs text-primary font-medium mb-1">
+                            {achievement.organization}
+                          </p>
+                          <div className="flex items-center gap-2 mb-3">
+                            <Badge variant="secondary" className="text-xs">
+                              {achievement.type}
                             </Badge>
-                          ) : (
-                            <p className="text-sm text-muted-foreground">
-                              {achievement.period}
-                            </p>
-                          )}
+                            <Badge variant="outline" className="text-xs">
+                              {achievement.year}
+                            </Badge>
+                          </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                        {achievement.downloadUrl && (
+                          <button
+                            onClick={() => handleDownload(achievement.downloadUrl!, achievement.title)}
+                            className="ml-2 p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors flex-shrink-0"
+                            title="Download Certificate"
+                          >
+                            <Download className="h-4 w-4 text-muted-foreground" />
+                          </button>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                        {achievement.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

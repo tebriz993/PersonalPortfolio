@@ -3,199 +3,145 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
-import { useLanguage } from "@/contexts/language-context";
 
 // Original project image
 import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
 
-// New project images
-import JobSearchAppImage from "@assets/JobSearchApp.png";
-import SoftwareVillageImage from "@assets/SoftwareVillage.png";
-import DendClubImage from "@assets/DendClub.png";
-import ECommerceAppImage from "@assets/ECommerceApp.png";
-import LawProjectImage from "@assets/LawProject.png";
-import ShopECommerceImage from "@assets/ShopECommerce.png";
-
-const featuredProjects = [
+// Mock additional projects
+const staticProjects = [
   {
-    id: "ecommerce-microservice",
-    name: "ECommerceMicroservice",
-    description: "Modern microservices-based e-commerce platform with distributed architecture.",
+    id: 2,
+    name: "Law Project Management",
+    description: "A comprehensive legal case management system built with C# .NET and Entity Framework.",
+    image: "/assets/LawProject.png",
+    technologies: ["C#", ".NET", "Entity Framework", "SQL Server"],
+    githubUrl: "https://github.com/tebriz993/Law-Firm-Management",
+    liveUrl: null,
+    featured: true
+  },
+  {
+    id: 3,
+    name: "Job Search Application",
+    description: "Modern job search platform with advanced filtering and matching algorithms.",
+    image: "/assets/JobSearchApp.png", 
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    githubUrl: "https://github.com/tebriz993/JobSearchApp",
+    liveUrl: null,
+    featured: true
+  },
+  {
+    id: 4,
+    name: "DendClub Social Platform",
+    description: "Social networking platform for fitness enthusiasts with workout tracking.",
+    image: "/assets/DendClub.png",
+    technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+    githubUrl: "https://github.com/tebriz993/DendClub",
+    liveUrl: null,
+    featured: true
+  },
+  {
+    id: 5,
+    name: "Shop E-Commerce",
+    description: "Full-featured e-commerce platform with payment integration and admin dashboard.",
+    image: "/assets/ShopECommerce.png",
+    technologies: ["React", "Redux", "Node.js", "Stripe API"],
+    githubUrl: "https://github.com/tebriz993/ShopECommerce",
+    liveUrl: null,
+    featured: true
+  },
+  {
+    id: 6,
+    name: "E-Commerce Microservices",
+    description: "Scalable microservices architecture for organic food e-commerce with containerization.",
     image: ecommerceImage,
-    technologies: ["C#", ".NET", "REST API", "RabbitMQ", "Elasticsearch", "Redis"],
-    github: "https://github.com/tebriz993/ECommerceMicroservice",
-    demo: null,
-    featured: false,
-    status: "Pending" 
-  },
-  {
-    id: "job-search-app",
-    name: "JobSearchApp",
-    description: "A comprehensive platform for searching and managing job applications.",
-    image: JobSearchAppImage,
-    technologies: ["C#", ".NET", "RestAPI", "Clean Architecture"],
-    github: "https://github.com/tebriz993/JobSearch-App",
-    demo: null,
-    featured: true
-  },
-  {
-    id: "software-village",
-    name: "SoftwareVillage",
-    description: "A project for the Software Village course, demonstrating core software principles.",
-    image: SoftwareVillageImage,
-    technologies: ["C#", ".NET Core MVC", "MVVM", "MVC Architecture"],
-    github: "https://github.com/tebriz993/SoftwareVillage",
-    demo: null,
-    featured: true
-  },
-  {
-    id: "dendclub",
-    name: "DendClub",
-    description: "A healthcare system project designed to manage patient and clinical data efficiently.",
-    image: DendClubImage,
-    technologies: ["C#", ".NET", "RestAPI", "JavaScript", "TypeScript", "React.js"],
-    github: "https://github.com/tebriz993/dendclub",
-    demo: null,
-    featured: true
-  },
-  {
-    id: "ecommerce-app",
-    name: "ECommerceApp",
-    description: "A full-featured e-commerce application built with an N-layer architecture.",
-    image: ECommerceAppImage,
-    technologies: ["C#", ".NET", ".NET MVC", "MVVM", "N-layer Architecture", "jQuery"],
-    github: "https://github.com/tebriz993/ECommerceApp",
-    demo: null,
-    featured: true
-  },
-  {
-    id: "law-project",
-    name: "LawProject",
-    description: "A specialized application designed to assist legal professionals and law firms.",
-    image: LawProjectImage,
-    technologies: ["C#", ".NET Core MVC", "MVVM"],
-    github: "https://github.com/tebriz993/Law_Project",
-    demo: null,
-    featured: true
-  },
-  {
-    id: "shop-ecommerce",
-    name: "ShopECommerce",
-    description: "A corporate e-commerce solution with Onion Architecture and Elasticsearch.",
-    image: ShopECommerceImage,
-    technologies: ["C#", ".NET", "RestAPI", "Onion Architecture", "ElasticSearch"],
-    github: "https://github.com/tebriz993/ShopECommerce",
-    demo: null,
+    technologies: ["C#", ".NET Core", "Docker", "Kubernetes", "RabbitMQ"],
+    githubUrl: "https://github.com/tebriz993/ECommerceMicroservice",
+    liveUrl: null,
     featured: true
   },
 ];
 
 export function ProjectsSection() {
-  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <section id="projects" className="section-padding bg-muted/50">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
-          <div
-            className="flex items-center justify-center mb-12 cursor-pointer"
-            onClick={() => setIsExpanded(!isExpanded)}
-            role="button"
-            aria-expanded={isExpanded}
-            aria-controls="projects-grid"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              {t.projects.title}
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Featured Projects
             </h2>
-            <span className="ml-4">
-              {isExpanded ? <ChevronUp className="h-7 w-7" /> : <ChevronDown className="h-7 w-7" />}
-            </span>
+            <Button
+              variant="ghost"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center gap-2"
+            >
+              {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              {isExpanded ? 'Collapse' : 'Expand'}
+            </Button>
           </div>
 
-          <div
-            id="projects-grid"
-            className="overflow-hidden transition-all duration-700 ease-in-out"
-            style={{ maxHeight: isExpanded ? '5000px' : '0px' }}
-          >
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProjects.map((project) => (
-                <Card
-                  key={project.id}
-                  className="hover:shadow-lg transition-all duration-300 hover:scale-105 border-primary/20 flex flex-col"
-                >
-                  <CardContent className="p-0 flex flex-col flex-grow">
-                    <div className="h-48 relative rounded-t-lg overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute top-2 right-2 flex flex-col items-end gap-y-2">
-                        {project.featured && (
-                          <Badge className="bg-black/40 text-white/90 backdrop-blur-sm border-white/20">
-                            Featured
-                          </Badge>
-                        )}
-                        {project.status && (
-                          <Badge variant="secondary" className="bg-blue-900 text-blue-100 border-blue-700">
-                            {project.status}
-                          </Badge>
-                        )}
-                      </div>
+          {isExpanded && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {staticProjects.map((project) => (
+                <Card key={project.id} className="group hover:shadow-lg transition-shadow duration-300">
+                  <div className="aspect-video overflow-hidden rounded-t-lg">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgdmlld0JveD0iMCAwIDQwMCAyMjUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjI1IiBmaWxsPSIjZjMfNGY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTEyLjVMMTc1IDg3LjVMMjAwIDYyLjVMMjI1IDg3LjVMMjAwIDExMi41WiIgZmlsbD0iIzk5YTNhZiIvPgo8L3N2Zz4K';
+                      }}
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-lg mb-2">{project.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies?.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
-
-                    <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="mt-auto flex space-x-2 pt-4">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          <Github className="h-5 w-5" />
-                        </a>
-                        {project.demo && (
+                    <div className="flex gap-2">
+                      {project.githubUrl && (
+                        <Button variant="outline" size="sm" asChild>
                           <a
-                            href={project.demo}
+                            href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-primary transition-colors"
+                            className="flex items-center gap-1"
                           >
-                            <ExternalLink className="h-5 w-5" />
+                            <Github className="h-4 w-4" />
+                            Code
                           </a>
-                        )}
-                      </div>
+                        </Button>
+                      )}
+                      {project.liveUrl && (
+                        <Button size="sm" asChild>
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
-              <a
-                href="https://github.com/tebriz993"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                View All Projects on GitHub
-              </a>
-            </Button>
-          </div>
+          )}
         </div>
       </div>
     </section>

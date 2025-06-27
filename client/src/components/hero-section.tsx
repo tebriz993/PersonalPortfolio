@@ -3,11 +3,14 @@
 // 1. Lazımi komponentləri və kitabxananı import edirik
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import { TypeAnimation } from "react-type-animation"; // YENİ IMPORT
+import { TypeAnimation } from "react-type-animation";
 import tabrizPhoto from "@/assets/profile-image.png";
 import { trackEvent } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/language-context";
 
 export function HeroSection() {
+  const { t } = useLanguage();
+  
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
     if (element) {
@@ -45,13 +48,11 @@ export function HeroSection() {
           <div className="mb-4 text-xl md:text-2xl font-semibold min-h-[64px] flex items-center justify-center">
             <TypeAnimation
               sequence={[
-                'Hi, I\'m Tabriz.',
+                t.hero.greeting,
                 1000,
-                'Full Stack Software Engineer.',
+                t.hero.title,
                 1000,
-                'I build modern web applications.',
-                1000,
-                'And architect scalable cloud solutions.',
+                t.hero.description,
                 1500,
               ]}
               wrapper="span"
@@ -63,16 +64,16 @@ export function HeroSection() {
 
 
           <p className="text-lg mb-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-            A skilled software engineer dedicated to building modern, scalable web solutions. I leverage strong algorithmic thinking to tackle complex challenges and deliver high-quality code.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button onClick={scrollToContact} size="lg" className="px-8">
-              Get In Touch
+              {t.hero.contactMe}
             </Button>
             <Button variant="outline" size="lg" className="px-8" onClick={downloadCV}>
               <Download className="mr-2 h-4 w-4" />
-              Download CV
+              {t.hero.downloadCV}
             </Button>
           </div>
 

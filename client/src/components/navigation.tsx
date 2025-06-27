@@ -3,19 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Moon, Sun, Menu } from "lucide-react";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "@/contexts/language-context";
+import { LanguageSwitcher } from "./language-switcher";
 import { trackEvent } from "@/lib/analytics";
 
-const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
+// Navigation items will now use translations
 
 export function Navigation() {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { href: "#about", label: t.nav.about },
+    { href: "#experience", label: t.nav.experience },
+    { href: "#skills", label: t.nav.skills },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   const scrollToSection = (href: string) => {
     // Track navigation clicks
@@ -52,6 +57,7 @@ export function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
+            <LanguageSwitcher />
             <Button
               variant="ghost"
               size="icon"

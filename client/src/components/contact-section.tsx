@@ -135,65 +135,63 @@ export function ContactSection() {
               </div>
             </div>
 
-            <Card className="bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="bg-background/10 border-muted"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="bg-background/10 border-muted"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-white">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Project Discussion"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="bg-background/10 border-muted"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-white">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      placeholder="Tell me about your project..."
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="bg-background/10 border-muted resize-none"
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <div className="p-8 rounded-lg border border-muted/20">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-white">Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="bg-transparent border-muted/30 text-white placeholder:text-muted-foreground"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-white">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="bg-transparent border-muted/30 text-white placeholder:text-muted-foreground"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-white">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Project Discussion"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="bg-transparent border-muted/30 text-white placeholder:text-muted-foreground"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-white">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    placeholder="Tell me about your project..."
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="bg-transparent border-muted/30 text-white placeholder:text-muted-foreground resize-none"
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

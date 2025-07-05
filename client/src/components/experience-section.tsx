@@ -37,7 +37,7 @@ const experiences = [
     period: "10/2024 - 05/2025",
     location: "Azerbaijan",
     description: "Led a full-stack development team, implementing scalable solutions using C#, .NET, Docker, Kubernetes, and React.js.",
-    technologies: ["Team Leadership", "Docker", "Kubernetes", "React.js"],
+    technologies: ["C#", ".NET", ".NET Core", "ASP.NET Core", "React.js", "JavaScript", "TypeScript", "Docker", "Kubernetes", "Microservices", "Team Leadership"],
     current: false,
   },
   {

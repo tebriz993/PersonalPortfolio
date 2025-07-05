@@ -84,13 +84,6 @@ export function ExperienceSection() {
             <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <Card key={index} className="relative">
-                  {exp.current && (
-                    <div className="absolute -top-2 -right-2">
-                      <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-                        Current
-                      </Badge>
-                    </div>
-                  )}
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                       <div className="flex-1">
@@ -103,7 +96,10 @@ export function ExperienceSection() {
                           <span>{exp.location}</span>
                         </div>
                       </div>
-                      <Badge variant="outline" className="self-start mt-2 md:mt-0">
+                      <Badge 
+                        variant="outline" 
+                        className={`self-start mt-2 md:mt-0 ${exp.current ? 'bg-green-100 text-green-800 border-green-200' : ''}`}
+                      >
                         {exp.period}
                       </Badge>
                     </div>

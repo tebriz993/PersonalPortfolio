@@ -7,56 +7,83 @@ import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 // Original project image
 import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
 
-// Mock additional projects
+// Featured Projects
 const staticProjects = [
   {
-    id: 2,
-    name: "Law Project Management",
-    description: "A comprehensive legal case management system built with C# .NET and Entity Framework.",
-    image: "/assets/LawProject.png",
-    technologies: ["C#", ".NET", "Entity Framework", "SQL Server"],
-    githubUrl: "https://github.com/tebriz993/Law-Firm-Management",
+    id: 1,
+    name: "ECommerceMicroservice",
+    description: "Modern microservices-based e-commerce platform with distributed architecture.",
+    image: ecommerceImage,
+    technologies: ["C#", ".NET", "REST API", "RabbitMQ", "Elasticsearch", "Redis"],
+    githubUrl: "https://github.com/tebriz993/ECommerceMicroservice",
     liveUrl: null,
+    status: "Pending",
+    featured: true
+  },
+  {
+    id: 2,
+    name: "JobSearchApp",
+    description: "A comprehensive platform for searching and managing job applications.",
+    image: "/assets/JobSearchApp.png",
+    technologies: ["C#", ".NET", "RestAPI", "Clean Architecture"],
+    githubUrl: "https://github.com/tebriz993/JobSearchApp",
+    liveUrl: null,
+    status: "Featured",
     featured: true
   },
   {
     id: 3,
-    name: "Job Search Application",
-    description: "Modern job search platform with advanced filtering and matching algorithms.",
-    image: "/assets/JobSearchApp.png", 
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-    githubUrl: "https://github.com/tebriz993/JobSearchApp",
+    name: "SoftwareVillage",
+    description: "A project for the Software Village course, demonstrating core software principles.",
+    image: "/assets/SoftwareVillage.png",
+    technologies: ["C#", ".NET Core MVC", "MVVM", "MVC Architecture"],
+    githubUrl: "https://github.com/tebriz993/SoftwareVillage",
     liveUrl: null,
+    status: "Featured",
     featured: true
   },
   {
     id: 4,
-    name: "DendClub Social Platform",
-    description: "Social networking platform for fitness enthusiasts with workout tracking.",
+    name: "DendClub",
+    description: "A healthcare system project designed to manage patient and clinical data efficiently.",
     image: "/assets/DendClub.png",
-    technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+    technologies: ["C#", ".NET", "RestAPI", "JavaScript", "TypeScript", "React.js"],
     githubUrl: "https://github.com/tebriz993/DendClub",
     liveUrl: null,
+    status: "Featured",
     featured: true
   },
   {
     id: 5,
-    name: "Shop E-Commerce",
-    description: "Full-featured e-commerce platform with payment integration and admin dashboard.",
-    image: "/assets/ShopECommerce.png",
-    technologies: ["React", "Redux", "Node.js", "Stripe API"],
-    githubUrl: "https://github.com/tebriz993/ShopECommerce",
+    name: "ECommerceApp",
+    description: "A full-featured e-commerce application built with an N-layer architecture.",
+    image: "/assets/ECommerceApp.png",
+    technologies: ["C#", ".NET", ".NET MVC", "MVVM", "N-layer Architecture", "jQuery"],
+    githubUrl: "https://github.com/tebriz993/ECommerceApp",
     liveUrl: null,
+    status: "Featured",
     featured: true
   },
   {
     id: 6,
-    name: "E-Commerce Microservices",
-    description: "Scalable microservices architecture for organic food e-commerce with containerization.",
-    image: ecommerceImage,
-    technologies: ["C#", ".NET Core", "Docker", "Kubernetes", "RabbitMQ"],
-    githubUrl: "https://github.com/tebriz993/ECommerceMicroservice",
+    name: "LawProject",
+    description: "A specialized application designed to assist legal professionals and law firms.",
+    image: "/assets/LawProject.png",
+    technologies: ["C#", ".NET Core MVC", "MVVM"],
+    githubUrl: "https://github.com/tebriz993/LawProject",
     liveUrl: null,
+    status: "Featured",
+    featured: true
+  },
+  {
+    id: 7,
+    name: "ShopECommerce",
+    description: "A corporate e-commerce solution with Onion Architecture and Elasticsearch.",
+    image: "/assets/ShopECommerce.png",
+    technologies: ["C#", ".NET", "RestAPI", "Onion Architecture", "ElasticSearch"],
+    githubUrl: "https://github.com/tebriz993/ShopECommerce",
+    liveUrl: null,
+    status: "Featured",
     featured: true
   },
 ];
@@ -98,7 +125,15 @@ export function ProjectsSection() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="font-bold text-lg mb-2">{project.name}</h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-bold text-lg">{project.name}</h3>
+                      <Badge 
+                        variant={project.status === "Pending" ? "outline" : "default"}
+                        className="text-xs"
+                      >
+                        {project.status}
+                      </Badge>
+                    </div>
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {project.description}
                     </p>

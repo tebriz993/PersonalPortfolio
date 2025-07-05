@@ -55,6 +55,7 @@ export function ContactSection() {
           message: formData.message,
           to_email: 'latifovtebriz@gmail.com',
           reply_to: formData.email,
+          original_subject: formData.subject,
         },
         publicKey
       );

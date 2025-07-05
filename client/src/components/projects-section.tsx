@@ -4,8 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
-// Original project image
+// Project images
 import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
+import jobSearchImage from "@assets/JobSearchApp.png";
+import softwareVillageImage from "@assets/SoftwareVillage.png";
+import dendClubImage from "@assets/DendClub.png";
+import ecommerceAppImage from "@assets/ECommerceApp.png";
+import lawProjectImage from "@assets/LawProject.png";
+import shopECommerceImage from "@assets/ShopECommerce.png";
 
 // Featured Projects
 const staticProjects = [
@@ -24,7 +30,7 @@ const staticProjects = [
     id: 2,
     name: "JobSearchApp",
     description: "A comprehensive platform for searching and managing job applications.",
-    image: "/assets/JobSearchApp.png",
+    image: jobSearchImage,
     technologies: ["C#", ".NET", "RestAPI", "Clean Architecture"],
     githubUrl: "https://github.com/tebriz993/JobSearchApp",
     liveUrl: null,
@@ -35,7 +41,7 @@ const staticProjects = [
     id: 3,
     name: "SoftwareVillage",
     description: "A project for the Software Village course, demonstrating core software principles.",
-    image: "/assets/SoftwareVillage.png",
+    image: softwareVillageImage,
     technologies: ["C#", ".NET Core MVC", "MVVM", "MVC Architecture"],
     githubUrl: "https://github.com/tebriz993/SoftwareVillage",
     liveUrl: null,
@@ -46,7 +52,7 @@ const staticProjects = [
     id: 4,
     name: "DendClub",
     description: "A healthcare system project designed to manage patient and clinical data efficiently.",
-    image: "/assets/DendClub.png",
+    image: dendClubImage,
     technologies: ["C#", ".NET", "RestAPI", "JavaScript", "TypeScript", "React.js"],
     githubUrl: "https://github.com/tebriz993/DendClub",
     liveUrl: null,
@@ -57,7 +63,7 @@ const staticProjects = [
     id: 5,
     name: "ECommerceApp",
     description: "A full-featured e-commerce application built with an N-layer architecture.",
-    image: "/assets/ECommerceApp.png",
+    image: ecommerceAppImage,
     technologies: ["C#", ".NET", ".NET MVC", "MVVM", "N-layer Architecture", "jQuery"],
     githubUrl: "https://github.com/tebriz993/ECommerceApp",
     liveUrl: null,
@@ -68,7 +74,7 @@ const staticProjects = [
     id: 6,
     name: "LawProject",
     description: "A specialized application designed to assist legal professionals and law firms.",
-    image: "/assets/LawProject.png",
+    image: lawProjectImage,
     technologies: ["C#", ".NET Core MVC", "MVVM"],
     githubUrl: "https://github.com/tebriz993/LawProject",
     liveUrl: null,
@@ -79,7 +85,7 @@ const staticProjects = [
     id: 7,
     name: "ShopECommerce",
     description: "A corporate e-commerce solution with Onion Architecture and Elasticsearch.",
-    image: "/assets/ShopECommerce.png",
+    image: shopECommerceImage,
     technologies: ["C#", ".NET", "RestAPI", "Onion Architecture", "ElasticSearch"],
     githubUrl: "https://github.com/tebriz993/ShopECommerce",
     liveUrl: null,

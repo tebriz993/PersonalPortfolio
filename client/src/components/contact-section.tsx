@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from '@emailjs/browser';
 import { trackEvent } from "@/lib/analytics";
 
 export function ContactSection() {
@@ -35,9 +34,19 @@ export function ContactSection() {
       // Track form submission attempt
       trackEvent('form', 'contact', 'submit_attempt');
 
-      // Here you would integrate with your email service
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email via API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
 
       // Track successful submission
       trackEvent('form', 'contact', 'submit_success');
@@ -58,9 +67,10 @@ export function ContactSection() {
       // Track submission error
       trackEvent('form', 'contact', 'submit_error');
 
+      console.error('Contact form error:', error);
       toast({
         title: "Something went wrong",
-        description: "Something went wrong. Please check your details or try again later.",
+        description: error instanceof Error ? error.message : "Please check your details or try again later.",
         variant: "destructive",
       });
     } finally {

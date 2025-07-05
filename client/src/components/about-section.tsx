@@ -10,38 +10,43 @@ export function AboutSection() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
+              <div className="mb-8">
+                <img
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Software engineering workspace"
+                  className="rounded-lg w-full h-64 object-cover"
+                />
+              </div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I'm a passionate Full Stack Software Engineer with extensive experience in modern web technologies. 
-                My journey in software development has been driven by a constant desire to learn and create innovative solutions.
+                As a Full Stack Software Engineer with 3+ years of experience, I specialize in building scalable web applications for a diverse range of clients and projects using C#, .NET, React.js, and cloud services.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                With expertise spanning from frontend frameworks to backend architectures, I pride myself on delivering 
-                high-quality, scalable applications that make a real difference in users' lives.
+                I have a proven track record of leading development teams and architecting robust microservice solutions. My expertise spans from backend API development to intuitive frontend interfaces, with a strong focus on clean code and efficient, modular architectures.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <Card className="text-center">
                 <CardContent className="pt-6">
+                  <div className="text-2xl font-bold text-primary mb-2">15+</div>
+                  <p className="text-sm text-muted-foreground">Completed Projects</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardContent className="pt-6">
+                  <div className="text-2xl font-bold text-primary mb-2">AI & ML</div>
+                  <p className="text-sm text-muted-foreground">Continuous Learning</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardContent className="pt-6">
                   <div className="text-2xl font-bold text-primary mb-2">5+</div>
-                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                  <p className="text-sm text-muted-foreground">Global Conferences</p>
                 </CardContent>
               </Card>
               <Card className="text-center">
                 <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">50+</div>
-                  <p className="text-sm text-muted-foreground">Projects Completed</p>
-                </CardContent>
-              </Card>
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">20+</div>
-                  <p className="text-sm text-muted-foreground">Technologies Used</p>
-                </CardContent>
-              </Card>
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">100%</div>
-                  <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+                  <div className="text-2xl font-bold text-primary mb-2">3</div>
+                  <p className="text-sm text-muted-foreground">Published Articles</p>
                 </CardContent>
               </Card>
             </div>

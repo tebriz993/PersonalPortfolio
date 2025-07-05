@@ -63,8 +63,7 @@ export function HeroSection() {
 
 
           <p className="text-lg mb-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-            I'm a passionate software engineer with expertise in modern web technologies. 
-            I love creating innovative solutions that make a difference.
+            A skilled software engineer dedicated to building modern, scalable web solutions. I leverage strong algorithmic thinking to tackle complex challenges and deliver high-quality code.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

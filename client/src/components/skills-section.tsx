@@ -133,25 +133,6 @@ export function SkillsSection() {
     <section id="skills" className="section-padding">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
-          {/* Technologies I Work With - Visual Icons */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              Technologies I Work With
-            </h2>
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-4 md:gap-6">
-              {technologies.map((tech, index) => (
-                <div key={index} className="flex flex-col items-center group">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 mb-2">
-                    <tech.icon className={`w-8 h-8 md:w-10 md:h-10 ${tech.color}`} />
-                  </div>
-                  <span className="text-xs md:text-sm font-medium text-center leading-tight">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-bold">
               Technical Skills
@@ -166,8 +147,28 @@ export function SkillsSection() {
           </div>
 
           {isExpanded && (
-            <div className="grid md:grid-cols-2 gap-8">
-              {skillCategories.map((category, index) => {
+            <div>
+              {/* Technologies I Work With - Visual Icons */}
+              <div className="mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
+                  Technologies I Work With
+                </h3>
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-4 md:gap-6">
+                  {technologies.map((tech, index) => (
+                    <div key={index} className="flex flex-col items-center group">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 mb-2">
+                        <tech.icon className={`w-8 h-8 md:w-10 md:h-10 ${tech.color}`} />
+                      </div>
+                      <span className="text-xs md:text-sm font-medium text-center leading-tight">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {skillCategories.map((category, index) => {
                 const IconComponent = category.icon;
                 return (
                   <Card key={index} className="h-fit">
@@ -202,6 +203,7 @@ export function SkillsSection() {
                   </Card>
                 );
               })}
+              </div>
             </div>
           )}
         </div>

@@ -20,6 +20,7 @@ const backendSkills = [
   { name: "ASP.NET Core", icon: SiDotnet, color: "text-purple-700", progress: 90 },
   { name: "Microservices", icon: Server, color: "text-blue-600", progress: 85 },
   { name: "Entity Framework", icon: Database, color: "text-blue-700", progress: 88 },
+  { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600", progress: 75 },
   { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 70 },
   { name: "Apache Kafka", icon: SiApachekafka, color: "text-black", progress: 65 },
   { name: "GraphQL/Swagger/Postman", icon: SiGraphql, color: "text-pink-600", progress: 90 },

@@ -19,7 +19,7 @@ const experiences = [
     period: "08/2024 - Present",
     location: "Azerbaijan",
     description: "Teaching advanced C# and .NET concepts to aspiring developers, focusing on clean code principles and best practices.",
-    technologies: ["C#", ".NET", "Teaching", "Mentoring"],
+    technologies: ["C#", ".NET", "ASP.NET MVC", "Onion Architecture", ".NET Core", "Teaching", "Mentoring"],
     current: true,
   },
   {

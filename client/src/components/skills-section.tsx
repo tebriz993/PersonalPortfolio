@@ -20,8 +20,8 @@ const backendSkills = [
   { name: "ASP.NET Core", icon: SiDotnet, color: "text-purple-700", progress: 90 },
   { name: "Microservices", icon: Server, color: "text-blue-600", progress: 85 },
   { name: "Entity Framework", icon: Database, color: "text-blue-700", progress: 88 },
-  { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600", progress: 75 },
   { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 70 },
+  { name: "Apache Kafka", icon: SiApachekafka, color: "text-black", progress: 65 },
   { name: "GraphQL/Swagger/Postman", icon: SiGraphql, color: "text-pink-600", progress: 90 },
   { name: "Modular Architectures", icon: Server, color: "text-blue-800", progress: 95 },
 ];
@@ -36,6 +36,7 @@ const frontendSkills = [
   { name: "HTML5 & CSS3", icon: Code, color: "text-orange-600", progress: 95 },
   { name: "Redux", icon: SiReact, color: "text-purple-500", progress: 70 },
   { name: "Next.js", icon: SiNextdotjs, color: "text-black", progress: 55 },
+  { name: "VS Code", icon: Code, color: "text-blue-600", progress: 95 },
 ];
 
 const devopsCloudSkills = [
@@ -51,12 +52,10 @@ const devopsCloudSkills = [
   { name: "GitHub", icon: SiGithub, color: "text-black", progress: 90 },
   { name: "GitLab", icon: SiGitlab, color: "text-orange-600", progress: 80 },
   { name: "Jenkins", icon: SiJenkins, color: "text-blue-800", progress: 75 },
-  { name: "VS Code", icon: Code, color: "text-blue-600", progress: 95 },
   { name: "Postman", icon: SiPostman, color: "text-orange-500", progress: 90 },
   { name: "Swagger", icon: SiSwagger, color: "text-green-600", progress: 85 },
   { name: "Nginx", icon: SiNginx, color: "text-green-700", progress: 75 },
   { name: "Linux", icon: SiLinux, color: "text-black", progress: 80 },
-  { name: "Apache Kafka", icon: SiApachekafka, color: "text-black", progress: 65 },
   { name: "ElasticSearch", icon: SiElasticsearch, color: "text-yellow-600", progress: 70 },
 ];
 

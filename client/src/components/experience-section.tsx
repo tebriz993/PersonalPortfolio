@@ -10,7 +10,7 @@ const experiences = [
     period: "05/2025 - Present",
     location: "USA (Remote)",
     description: "Architecting and implementing end-to-end software solutions, leveraging a microservices backend (C#, .NET) to power engaging and responsive frontend applications built with React.js.",
-    technologies: ["C#", ".NET", "React.js", "JavaScript", "TypeScript", "SQL", "Azure/AWS"],
+    technologies: ["C#", ".NET", ".NET Core", "React.js", "JavaScript", "TypeScript", "SQL", "Azure/AWS", "Onion Architecture", "Microservice"],
     current: true,
   },
   {

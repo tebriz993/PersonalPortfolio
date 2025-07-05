@@ -11,8 +11,32 @@ import {
   SiNodedotjs, SiExpress, SiVuedotjs, SiAngular, SiBootstrap,
   SiMui, SiNextdotjs, SiNuxtdotjs, SiSqlite, SiOracle,
   SiFirebase, SiSupabase, SiGraphql,
-  SiApollographql, SiJenkins, SiGitlab, SiNginx, SiLinux
+  SiApollographql, SiJenkins, SiGitlab, SiNginx, SiLinux,
+  SiTerraform, SiGrafana
 } from "react-icons/si";
+
+// Technologies I Work With - Visual Icons
+const technologies = [
+  { name: "C#", icon: SiSharp, color: "text-purple-600" },
+  { name: ".NET", icon: SiDotnet, color: "text-purple-700" },
+  { name: "React", icon: SiReact, color: "text-blue-500" },
+  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
+  { name: "Docker", icon: SiDocker, color: "text-blue-600" },
+  { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-700" },
+  { name: "AWS", icon: SiAmazon, color: "text-orange-500" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-700" },
+  { name: "MS SQL Server", icon: Database, color: "text-red-600" },
+  { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600" },
+  { name: "Redis", icon: SiRedis, color: "text-red-600" },
+  { name: "GraphQL", icon: SiGraphql, color: "text-pink-600" },
+  { name: "Swagger", icon: SiSwagger, color: "text-green-600" },
+  { name: "Terraform", icon: SiTerraform, color: "text-purple-600" },
+  { name: "Grafana", icon: SiGrafana, color: "text-orange-600" },
+  { name: "Azure", icon: SiAmazon, color: "text-blue-600" },
+  { name: "Apache Kafka", icon: SiApachekafka, color: "text-gray-700" },
+  { name: "ElasticSearch", icon: SiElasticsearch, color: "text-yellow-600" },
+];
 
 // Define skill categories with progress percentages
 const backendSkills = [
@@ -109,6 +133,25 @@ export function SkillsSection() {
     <section id="skills" className="section-padding">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
+          {/* Technologies I Work With - Visual Icons */}
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+              Technologies I Work With
+            </h2>
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-4 md:gap-6">
+              {technologies.map((tech, index) => (
+                <div key={index} className="flex flex-col items-center group">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 mb-2">
+                    <tech.icon className={`w-8 h-8 md:w-10 md:h-10 ${tech.color}`} />
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-center leading-tight">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-bold">
               Technical Skills

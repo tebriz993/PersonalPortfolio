@@ -97,7 +97,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Email</p>
-                    <a href="mailto:latifovtebriz@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    <a href="mailto:latifovtebriz@gmail.com?subject=Project%20Discussion&body=Hello%20Tabriz,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%0D%0A%0D%0ABest%20regards," className="text-muted-foreground hover:text-primary transition-colors">
                       latifovtebriz@gmail.com
                     </a>
                   </div>

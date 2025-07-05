@@ -6,29 +6,56 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const experiences = [
   {
     title: "Full Stack Software Engineer",
-    company: "Freelance",
-    period: "2020 - Present",
-    location: "Remote",
-    description: "Developed and maintained full-stack web applications using modern technologies. Specialized in creating scalable, responsive solutions for various clients across different industries.",
-    technologies: ["C#", ".NET", "React", "TypeScript", "PostgreSQL", "Docker"],
+    company: "Freelancer",
+    period: "05/2025 - Present",
+    location: "USA (Remote)",
+    description: "Architecting and implementing end-to-end software solutions, leveraging a microservices backend (C#, .NET) to power engaging and responsive frontend applications built with React.js.",
+    technologies: ["C#", ".NET", "React.js", "JavaScript", "TypeScript", "SQL", "Azure/AWS"],
     current: true,
   },
   {
-    title: "Frontend Developer",
-    company: "MyMentorship",
-    period: "2019 - 2020",
-    location: "Baku, Azerbaijan",
-    description: "Built interactive user interfaces and enhanced user experience for educational platform. Collaborated with backend team to integrate APIs and optimize application performance.",
-    technologies: ["React", "JavaScript", "CSS3", "REST APIs"],
+    title: "Back-end Instructor",
+    company: "Software Village & CodeWorld.az",
+    period: "08/2024 - Present",
+    location: "Azerbaijan",
+    description: "Teaching advanced C# and .NET concepts to aspiring developers, focusing on clean code principles and best practices.",
+    technologies: ["C#", ".NET", "Teaching", "Mentoring"],
+    current: true,
+  },
+  {
+    title: "Software Developer (C#, .NET)",
+    company: "Crocusoft (Part-time)",
+    period: "12/2024 - 05/2025",
+    location: "Remote",
+    description: "Developing software solutions using C# and .NET technologies, participating in various company projects and implementations.",
+    technologies: ["C#", ".NET", "Software Development"],
     current: false,
   },
   {
-    title: "Backend Developer",
-    company: "Software Village",
-    period: "2018 - 2019",
-    location: "Baku, Azerbaijan", 
-    description: "Developed robust backend systems and APIs. Worked on database design, server architecture, and implementing business logic for enterprise applications.",
-    technologies: ["C#", ".NET Core", "SQL Server", "Entity Framework"],
+    title: "Full Stack Software Developer",
+    company: "DendClub (Hybrid)",
+    period: "10/2024 - 05/2025",
+    location: "Azerbaijan",
+    description: "Led a full-stack development team, implementing scalable solutions using C#, .NET, Docker, Kubernetes, and React.js.",
+    technologies: ["Team Leadership", "Docker", "Kubernetes", "React.js"],
+    current: false,
+  },
+  {
+    title: "Middle ICT On-site Technical Support Engineer (COP29)",
+    company: "KRONOS ICT TEAM, Australia team (Full-time)",
+    period: "09/2024 - 12/2024",
+    location: "Baku, Azerbaijan",
+    description: "Provided technical support and infrastructure management for COP29 conference, ensuring seamless ICT operations.",
+    technologies: ["Technical Support", "Infrastructure", "ICT Management"],
+    current: false,
+  },
+  {
+    title: "Full Stack Software Developer",
+    company: "TIC (Remote)",
+    period: "12/2023 - 12/2024",
+    location: "USA",
+    description: "Developed and maintained full-stack applications using modern web technologies and cloud services.",
+    technologies: ["Full Stack", "Cloud Services", "Web Development"],
     current: false,
   },
 ];
@@ -42,7 +69,7 @@ export function ExperienceSection() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Professional Experience
+              Work Experience
             </h2>
             <button
               onClick={() => setIsExpanded(!isExpanded)}

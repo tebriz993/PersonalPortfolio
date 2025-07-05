@@ -25,27 +25,27 @@ export function AboutSection() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">15+</div>
+              <Card className="text-center h-28 flex items-center justify-center">
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-primary mb-1">15+</div>
                   <p className="text-sm text-muted-foreground">Completed Projects</p>
                 </CardContent>
               </Card>
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">AI & ML</div>
+              <Card className="text-center h-28 flex items-center justify-center">
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-primary mb-1">AI & ML</div>
                   <p className="text-sm text-muted-foreground">Continuous Learning</p>
                 </CardContent>
               </Card>
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">5+</div>
+              <Card className="text-center h-28 flex items-center justify-center">
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-primary mb-1">5+</div>
                   <p className="text-sm text-muted-foreground">Global Conferences</p>
                 </CardContent>
               </Card>
-              <Card className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-primary mb-2">3</div>
+              <Card className="text-center h-28 flex items-center justify-center">
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-primary mb-1">3</div>
                   <p className="text-sm text-muted-foreground">Published Articles</p>
                 </CardContent>
               </Card>

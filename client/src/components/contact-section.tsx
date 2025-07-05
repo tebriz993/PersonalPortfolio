@@ -51,9 +51,10 @@ export function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
-          subject: formData.subject,
+          subject: `New Message from Portfolio: ${formData.subject}`,
           message: formData.message,
           to_email: 'latifovtebriz@gmail.com',
+          reply_to: formData.email,
         },
         publicKey
       );

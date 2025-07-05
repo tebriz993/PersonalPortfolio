@@ -16,39 +16,34 @@ import {
 
 // Define skill categories with progress percentages
 const backendSkills = [
-  { name: "C# & .NET", icon: SiSharp, color: "text-purple-600", progress: 95 },
-  { name: "ASP.NET Core", icon: SiDotnet, color: "text-purple-700", progress: 90 },
+  { name: "C#", icon: SiSharp, color: "text-purple-600", progress: 95 },
+  { name: ".NET", icon: SiDotnet, color: "text-purple-700", progress: 95 },
+  { name: ".NET Core", icon: SiDotnet, color: "text-purple-500", progress: 90 },
+  { name: "ASP.NET MVC", icon: SiDotnet, color: "text-purple-800", progress: 88 },
   { name: "Microservices", icon: Server, color: "text-blue-600", progress: 85 },
+  { name: "Onion Architecture", icon: Server, color: "text-blue-800", progress: 85 },
   { name: "Entity Framework", icon: Database, color: "text-blue-700", progress: 88 },
   { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600", progress: 75 },
   { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 70 },
-  { name: "Apache Kafka", icon: SiApachekafka, color: "text-black", progress: 65 },
-  { name: "GraphQL/Swagger/Postman", icon: SiGraphql, color: "text-pink-600", progress: 90 },
-  { name: "Modular Architectures", icon: Server, color: "text-blue-800", progress: 95 },
 ];
 
 const frontendSkills = [
   { name: "React.js", icon: SiReact, color: "text-blue-500", progress: 85 },
-  { name: "JavaScript (ES6+)", icon: SiJavascript, color: "text-yellow-500", progress: 90 },
+  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500", progress: 90 },
   { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", progress: 80 },
+  { name: "HTML5 & CSS3", icon: Code, color: "text-orange-600", progress: 95 },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500", progress: 85 },
   { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-600", progress: 85 },
   { name: "Material UI", icon: SiMui, color: "text-blue-600", progress: 80 },
-  { name: "HTML5 & CSS3", icon: Code, color: "text-orange-600", progress: 95 },
   { name: "Redux", icon: SiReact, color: "text-purple-500", progress: 70 },
   { name: "Next.js", icon: SiNextdotjs, color: "text-black", progress: 55 },
-  { name: "VS Code", icon: Code, color: "text-blue-600", progress: 95 },
 ];
 
 const devopsCloudSkills = [
+  { name: "Azure/AWS", icon: Cloud, color: "text-blue-600", progress: 80 },
   { name: "Docker", icon: SiDocker, color: "text-blue-600", progress: 85 },
   { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-700", progress: 75 },
-  { name: "AWS", icon: SiAmazon, color: "text-orange-500", progress: 80 },
   { name: "CI/CD Pipelines", icon: Server, color: "text-green-600", progress: 80 },
-  { name: "Terraform", icon: Cloud, color: "text-purple-600", progress: 75 },
-  { name: "Prometheus & Grafana", icon: Server, color: "text-orange-600", progress: 70 },
-  { name: "Azure", icon: Cloud, color: "text-blue-600", progress: 75 },
-  { name: "Google Cloud", icon: Cloud, color: "text-blue-500", progress: 75 },
   { name: "Git", icon: SiGit, color: "text-orange-600", progress: 95 },
   { name: "GitHub", icon: SiGithub, color: "text-black", progress: 90 },
   { name: "GitLab", icon: SiGitlab, color: "text-orange-600", progress: 80 },
@@ -58,13 +53,20 @@ const devopsCloudSkills = [
 ];
 
 const databaseSkills = [
+  { name: "SQL", icon: Database, color: "text-blue-800", progress: 90 },
   { name: "MS SQL Server", icon: Database, color: "text-blue-800", progress: 90 },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-700", progress: 85 },
   { name: "MySQL", icon: SiMysql, color: "text-blue-600", progress: 85 },
   { name: "MongoDB", icon: SiMongodb, color: "text-green-600", progress: 70 },
-  { name: "Oracle", icon: SiOracle, color: "text-red-700", progress: 75 },
-  { name: "Elasticsearch", icon: SiElasticsearch, color: "text-yellow-600", progress: 70 },
+  { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 70 },
   { name: "Firebase", icon: SiFirebase, color: "text-yellow-600", progress: 75 },
+];
+
+const teachingSkills = [
+  { name: "Teaching", icon: Code, color: "text-green-600", progress: 85 },
+  { name: "Mentoring", icon: Code, color: "text-blue-600", progress: 80 },
+  { name: "Code Review", icon: Code, color: "text-purple-600", progress: 85 },
+  { name: "Technical Writing", icon: Code, color: "text-orange-600", progress: 75 },
 ];
 
 export function SkillsSection() {
@@ -93,7 +95,13 @@ export function SkillsSection() {
       title: "Databases",
       icon: Database,
       skills: databaseSkills,
-      color: "text-purple-600"
+      color: "text-orange-600"
+    },
+    {
+      title: "Teaching & Mentoring",
+      icon: Code,
+      skills: teachingSkills,
+      color: "text-emerald-600"
     }
   ];
 

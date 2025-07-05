@@ -15,44 +15,37 @@ import {
 } from "react-icons/si";
 
 // Define skill categories with progress percentages
-const frontendSkills = [
-  { name: "React", icon: SiReact, color: "text-blue-500", progress: 95 },
-  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500", progress: 90 },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", progress: 85 },
-  { name: "Vue.js", icon: SiVuedotjs, color: "text-green-500", progress: 80 },
-  { name: "Angular", icon: SiAngular, color: "text-red-600", progress: 75 },
-  { name: "Next.js", icon: SiNextdotjs, color: "text-black", progress: 85 },
-  { name: "Nuxt.js", icon: SiNuxtdotjs, color: "text-green-600", progress: 75 },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500", progress: 90 },
-  { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-600", progress: 85 },
-  { name: "Material-UI", icon: SiMui, color: "text-blue-600", progress: 80 },
-];
-
 const backendSkills = [
-  { name: "C#", icon: SiSharp, color: "text-purple-600", progress: 95 },
-  { name: ".NET", icon: SiDotnet, color: "text-purple-700", progress: 90 },
-  { name: "Node.js", icon: SiNodedotjs, color: "text-green-600", progress: 85 },
-  { name: "Express.js", icon: SiExpress, color: "text-gray-600", progress: 85 },
-  { name: "GraphQL", icon: SiGraphql, color: "text-pink-600", progress: 75 },
-  { name: "Apollo GraphQL", icon: SiApollographql, color: "text-black", progress: 70 },
+  { name: "C# & .NET", icon: SiSharp, color: "text-purple-600", progress: 95 },
+  { name: "ASP.NET Core", icon: SiDotnet, color: "text-purple-700", progress: 90 },
+  { name: "Microservices", icon: Server, color: "text-blue-600", progress: 85 },
+  { name: "Entity Framework", icon: Database, color: "text-blue-700", progress: 88 },
+  { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600", progress: 75 },
+  { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 70 },
+  { name: "GraphQL/Swagger/Postman", icon: SiGraphql, color: "text-pink-600", progress: 90 },
+  { name: "Modular Architectures", icon: Server, color: "text-blue-800", progress: 95 },
 ];
 
-const databaseSkills = [
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-700", progress: 90 },
-  { name: "MongoDB", icon: SiMongodb, color: "text-green-600", progress: 85 },
-  { name: "Redis", icon: SiRedis, color: "text-red-600", progress: 80 },
-  { name: "MySQL", icon: SiMysql, color: "text-blue-600", progress: 85 },
-  { name: "SQLite", icon: SiSqlite, color: "text-blue-500", progress: 80 },
-  { name: "Oracle", icon: SiOracle, color: "text-red-700", progress: 70 },
-  { name: "SQL Server", icon: Database, color: "text-blue-800", progress: 85 },
-  { name: "Firebase", icon: SiFirebase, color: "text-yellow-600", progress: 75 },
-  { name: "Supabase", icon: SiSupabase, color: "text-green-600", progress: 70 },
+const frontendSkills = [
+  { name: "React.js", icon: SiReact, color: "text-blue-500", progress: 85 },
+  { name: "JavaScript (ES6+)", icon: SiJavascript, color: "text-yellow-500", progress: 90 },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", progress: 80 },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500", progress: 85 },
+  { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-600", progress: 85 },
+  { name: "Material UI", icon: SiMui, color: "text-blue-600", progress: 80 },
+  { name: "HTML5 & CSS3", icon: Code, color: "text-orange-600", progress: 95 },
+  { name: "Redux", icon: SiReact, color: "text-purple-500", progress: 70 },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-black", progress: 55 },
 ];
 
-const cloudAndDevOpsSkills = [
+const devopsCloudSkills = [
   { name: "Docker", icon: SiDocker, color: "text-blue-600", progress: 85 },
   { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-700", progress: 75 },
   { name: "AWS", icon: SiAmazon, color: "text-orange-500", progress: 80 },
+  { name: "CI/CD Pipelines", icon: Server, color: "text-green-600", progress: 80 },
+  { name: "Terraform", icon: Cloud, color: "text-purple-600", progress: 75 },
+  { name: "Prometheus & Grafana", icon: Server, color: "text-orange-600", progress: 70 },
+  { name: "Azure", icon: Cloud, color: "text-blue-600", progress: 75 },
   { name: "Google Cloud", icon: Cloud, color: "text-blue-500", progress: 75 },
   { name: "Git", icon: SiGit, color: "text-orange-600", progress: 95 },
   { name: "GitHub", icon: SiGithub, color: "text-black", progress: 90 },
@@ -63,9 +56,18 @@ const cloudAndDevOpsSkills = [
   { name: "Swagger", icon: SiSwagger, color: "text-green-600", progress: 85 },
   { name: "Nginx", icon: SiNginx, color: "text-green-700", progress: 75 },
   { name: "Linux", icon: SiLinux, color: "text-black", progress: 80 },
-  { name: "RabbitMQ", icon: SiRabbitmq, color: "text-orange-600", progress: 70 },
   { name: "Apache Kafka", icon: SiApachekafka, color: "text-black", progress: 65 },
   { name: "ElasticSearch", icon: SiElasticsearch, color: "text-yellow-600", progress: 70 },
+];
+
+const databaseSkills = [
+  { name: "MS SQL Server", icon: Database, color: "text-blue-800", progress: 90 },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-700", progress: 85 },
+  { name: "MySQL", icon: SiMysql, color: "text-blue-600", progress: 85 },
+  { name: "MongoDB", icon: SiMongodb, color: "text-green-600", progress: 70 },
+  { name: "Oracle", icon: SiOracle, color: "text-red-700", progress: 75 },
+  { name: "Elasticsearch", icon: SiElasticsearch, color: "text-yellow-600", progress: 70 },
+  { name: "Firebase", icon: SiFirebase, color: "text-yellow-600", progress: 75 },
 ];
 
 export function SkillsSection() {
@@ -73,28 +75,28 @@ export function SkillsSection() {
 
   const skillCategories = [
     {
+      title: "Backend Development", 
+      icon: Server,
+      skills: backendSkills,
+      color: "text-purple-600"
+    },
+    {
       title: "Frontend Development",
       icon: Code,
       skills: frontendSkills,
       color: "text-blue-600"
     },
     {
-      title: "Backend Development", 
-      icon: Server,
-      skills: backendSkills,
+      title: "DevOps & Cloud",
+      icon: Cloud,
+      skills: devopsCloudSkills,
       color: "text-green-600"
     },
     {
-      title: "Database & Storage",
+      title: "Databases",
       icon: Database,
       skills: databaseSkills,
       color: "text-purple-600"
-    },
-    {
-      title: "Cloud & DevOps",
-      icon: Cloud,
-      skills: cloudAndDevOpsSkills,
-      color: "text-orange-600"
     }
   ];
 

@@ -77,96 +77,118 @@ export function ContactSection() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-bold mb-6">Let's Work Together</h3>
-              <p className="text-muted-foreground mb-8">
+              <h3 className="text-2xl font-bold mb-6">Let's Work Together</h3>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
                 I'm always interested in discussing new opportunities, interesting projects, and innovative solutions. Whether you have a question or just want to say hi, feel free to reach out — you'll receive a response within 12 hours. Let's create something amazing together!
               </p>
 
-              <div className="space-y-4">
-                <Card>
-                  <CardContent className="flex items-center gap-4 p-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <a href="mailto:tabrizlatifov@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        tabrizlatifov@gmail.com
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="mb-8">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Collaborative workspace"
+                  className="rounded-lg w-full h-64 object-cover"
+                />
+              </div>
 
-                <Card>
-                  <CardContent className="flex items-center gap-4 p-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Linkedin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-medium">LinkedIn</p>
-                      <a 
-                        href="https://linkedin.com/in/tabriz-latifov-544307260" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                        onClick={() => trackEvent('click', 'social_media', 'linkedin_contact')}
-                      >
-                        Connect with me
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">Email</p>
+                    <a href="mailto:latifovtebriz@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                      latifovtebriz@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">Phone</p>
+                    <a href="tel:+994507895282" className="text-muted-foreground hover:text-primary transition-colors">
+                      +994 50 789 52 82
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Linkedin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">LinkedIn</p>
+                    <a 
+                      href="https://linkedin.com/in/tabriz-latifov" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => trackEvent('click', 'social_media', 'linkedin_contact')}
+                    >
+                      linkedin.com/in/tabriz-latifov
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <Card>
-              <CardContent className="p-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
+            <Card className="bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-white">Name</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="bg-background/10 border-muted"
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="email" className="text-white">Email</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="bg-background/10 border-muted"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="text-white">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
+                      placeholder="Project Discussion"
                       value={formData.subject}
                       onChange={handleInputChange}
+                      className="bg-background/10 border-muted"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-white">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
-                      rows={5}
+                      rows={4}
+                      placeholder="Tell me about your project..."
                       value={formData.message}
                       onChange={handleInputChange}
+                      className="bg-background/10 border-muted resize-none"
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>

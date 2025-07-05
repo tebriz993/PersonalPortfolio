@@ -32,7 +32,7 @@ const staticProjects = [
     description: "A comprehensive platform for searching and managing job applications.",
     image: jobSearchImage,
     technologies: ["C#", ".NET", "RestAPI", "Clean Architecture"],
-    githubUrl: "https://github.com/tebriz993/JobSearchApp",
+    githubUrl: "https://github.com/tebriz993/JobSearch-App",
     liveUrl: null,
     status: "Featured",
     featured: true
@@ -76,7 +76,7 @@ const staticProjects = [
     description: "A specialized application designed to assist legal professionals and law firms.",
     image: lawProjectImage,
     technologies: ["C#", ".NET Core MVC", "MVVM"],
-    githubUrl: "https://github.com/tebriz993/LawProject",
+    githubUrl: "https://github.com/tebriz993/Law_Project",
     liveUrl: null,
     status: "Featured",
     featured: true

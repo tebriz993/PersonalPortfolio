@@ -56,6 +56,10 @@ export function ContactSection() {
           to_email: 'latifovtebriz@gmail.com',
           reply_to: formData.email,
           original_subject: formData.subject,
+          user_name: formData.name,
+          user_email: formData.email,
+          name: formData.name,
+          email: formData.email,
         },
         publicKey
       );

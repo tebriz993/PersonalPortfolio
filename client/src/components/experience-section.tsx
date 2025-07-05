@@ -28,7 +28,7 @@ const experiences = [
     period: "12/2024 - 05/2025",
     location: "Remote",
     description: "Developing software solutions using C# and .NET technologies, participating in various company projects and implementations.",
-    technologies: ["C#", ".NET", "Software Development"],
+    technologies: ["C#", ".NET", "ASP.NET Core", "Onion Architecture", "Software Development"],
     current: false,
   },
   {

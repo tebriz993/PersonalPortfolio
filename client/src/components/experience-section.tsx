@@ -55,7 +55,7 @@ const experiences = [
     period: "12/2023 - 12/2024",
     location: "USA",
     description: "Developed and maintained full-stack applications using modern web technologies and cloud services.",
-    technologies: ["C#", ".NET", ".NET Core", "ASP.NET Core", "React.js", "JavaScript", "TypeScript", "AWS", "Azure", "SQL", "Full Stack", "Cloud Services", "Web Development"],
+    technologies: ["C#", ".NET", ".NET Core", "ASP.NET Core", "React.js", "JavaScript", "TypeScript", "AWS", "Azure", "SQL", "Cloud Services", "Web Development"],
     current: false,
   },
 ];

@@ -18,7 +18,7 @@ export function AboutSection() {
             </div>
             <div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                As a Full Stack Software Engineer with 3+ years of experience, I specialize in building scalable web applications for a diverse range of clients and projects using C#, .NET, React.js, and cloud services.
+                As a Full Stack Software Engineer with 5+ years of experience, I specialize in building scalable web applications for a diverse range of clients and projects using C#, .NET, Microservices, JavaScript, TypeScript, React.js, cloud services and deployment process.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 I have a proven track record of leading development teams and architecting robust microservice solutions. My expertise spans from backend API development to intuitive frontend interfaces, with a strong focus on clean code and efficient, modular architectures.
@@ -26,14 +26,14 @@ export function AboutSection() {
               <div className="grid grid-cols-2 gap-4">
                 <Card className="text-center h-24 flex items-center justify-center">
                   <CardContent className="p-3">
-                    <div className="text-xl font-bold text-primary mb-1">15+</div>
+                    <div className="text-xl font-bold text-primary mb-1">30+</div>
                     <p className="text-xs text-muted-foreground">Completed Projects</p>
                   </CardContent>
                 </Card>
                 <Card className="text-center h-24 flex items-center justify-center">
                   <CardContent className="p-3">
                     <div className="text-xl font-bold text-primary mb-1">AI & ML</div>
-                    <p className="text-xs text-muted-foreground">Continuous Learning</p>
+                    <p className="text-xs text-muted-foreground">Data-Driven Solutions</p>
                   </CardContent>
                 </Card>
                 <Card className="text-center h-24 flex items-center justify-center">

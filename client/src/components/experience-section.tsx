@@ -52,7 +52,7 @@ const experiences = [
   {
     title: "Full Stack Software Developer",
     company: "TIC (Remote)",
-    period: "12/2023 - 12/2024",
+    period: "12/2019 - 12/2024",
     location: "USA",
     description: "Developed and maintained full-stack applications using modern web technologies and cloud services.",
     technologies: ["C#", ".NET", ".NET Core", "ASP.NET Core", "React.js", "JavaScript", "TypeScript", "AWS", "Azure", "SQL", "Cloud Services", "Web Development"],

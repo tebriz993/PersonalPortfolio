@@ -25,7 +25,7 @@ const experiences = [
   {
     title: "Software Developer (C#, .NET)",
     company: "Crocusoft (Part-time)",
-    period: "12/2024 - 05/2025",
+    period: "12/2024 - 06/2025",
     location: "Remote",
     description: "Developing software solutions using C# and .NET technologies, participating in various company projects and implementations.",
     technologies: ["C#", ".NET", "ASP.NET Core", "Onion Architecture", "Software Development"],
@@ -34,7 +34,7 @@ const experiences = [
   {
     title: "Full Stack Software Developer",
     company: "DendClub (Hybrid)",
-    period: "10/2024 - 05/2025",
+    period: "12/2024 - 05/2025",
     location: "Azerbaijan",
     description: "Led a full-stack development team, implementing scalable solutions using C#, .NET, Docker, Kubernetes, and React.js.",
     technologies: ["C#", ".NET", ".NET Core", "ASP.NET Core", "React.js", "JavaScript", "TypeScript", "Docker", "Kubernetes", "Microservices", "Team Leadership"],

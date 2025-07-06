@@ -22,8 +22,8 @@ export function HeroSection() {
     trackEvent('download', 'cv', 'hero_section');
     
     const link = document.createElement('a');
-    link.href = '/assets/Tabriz-Latifov-CV.pdf';
-    link.download = 'Tabriz-Latifov-CV.pdf';
+    link.href = '/Tabriz-Latifov-CV-Full-Stack-Software-Engineer.pdf';
+    link.download = 'Tabriz-Latifov-CV-Full-Stack-Software-Engineer.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

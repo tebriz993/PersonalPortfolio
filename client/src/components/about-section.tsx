@@ -18,7 +18,7 @@ export function AboutSection() {
             </div>
             <div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                As a Full Stack Software Engineer with 5+ years of experience, I specialize in building scalable web applications for a diverse range of clients and projects using C#, .NET, Microservices, JavaScript, TypeScript, React.js, cloud services and deployment process.
+                As a highly experienced Full Stack Software Engineer, I have consistently delivered scalable and high-performance web applications using technologies such as C#, .NET, Microservices, JavaScript, TypeScript, React.js, as well as modern cloud services and deployment tools across a wide variety of projects and industries.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 I have a proven track record of leading development teams and architecting robust microservice solutions. My expertise spans from backend API development to intuitive frontend interfaces, with a strong focus on clean code and efficient, modular architectures.

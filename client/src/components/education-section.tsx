@@ -6,7 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 
 const education = [
   {
-    institution: "UNISER University",
+    institution: "UNISER Academy",
     degree: "Advanced Backend Development with C# .NET",
     period: "2023 - 2024",
     location: "Baku, Azerbaijan",
@@ -14,7 +14,7 @@ const education = [
     status: "completed"
   },
   {
-    institution: "MyMentorship",
+    institution: "MyMentorship and Development Agency",
     degree: "Advanced Frontend Development",
     period: "2020 - 2021", 
     location: "Baku, Azerbaijan",
@@ -22,7 +22,7 @@ const education = [
     status: "completed"
   },
   {
-    institution: "Software Village Academy",
+    institution: "Software Village",
     degree: "Backend Development with C# MVC",
     period: "2019 - 2020",
     location: "Baku, Azerbaijan", 

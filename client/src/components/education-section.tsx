@@ -23,7 +23,7 @@ const education = [
   },
   {
     institution: "Software Village",
-    degree: "Backend Development with C# MVC",
+    degree: "Backend Development with C# .NET",
     period: "2019 - 2020",
     location: "Baku, Azerbaijan", 
     description: "Intensive backend development program covering C# MVC architecture, database design, and web API development.",

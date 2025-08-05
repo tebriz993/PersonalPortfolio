@@ -1,56 +1,40 @@
-# Dockerfile
+# Dockerfile (TAM VƏ SİZİN LAYİHƏYƏ UYĞUN VERSİYA)
 
-# --- Mərhələ 1: Asılılıqları (Dependencies) Qurmaq ---
-FROM node:18-alpine AS deps
+# --- Mərhələ 1: Build Mərhələsi ---
+# Bu mərhələ bütün asılılıqları yükləyir və layihəni build edir.
+# Development üçün lazım olan paketlər də burada yüklənir, çünki build prosesi üçün lazımdır.
+FROM node:18-alpine AS build-stage
 WORKDIR /app
 
-# Əvvəlcə bütün package.json və lock fayllarını kopyalayırıq
-# Bu, asılılıqları keşləməyə və build prosesini sürətləndirməyə imkan verir
-COPY package.json package-lock.json ./
-COPY client/package.json ./client/
-COPY server/package.json ./server/
-
-# Bütün asılılıqları bir dəfəyə yükləyirik
+# Əvvəlcə package.json fayllarını kopyalayıb asılılıqları yükləyirik
+# Bu, dəyişiklik olmadıqda Docker-in keşdən istifadə etməsinə imkan verir
+COPY package*.json ./
 RUN npm install
 
-# --- Mərhələ 2: Layihəni Qurmaq (Build) ---
-FROM node:18-alpine AS builder
-WORKDIR /app
-
-# Birinci mərhələdən asılılıqları kopyalayırıq
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/client/node_modules ./client/node_modules
-COPY --from=deps /app/server/node_modules ./server/node_modules
-
-# Layihənin qalan bütün fayllarını kopyalayırıq
+# Bütün layihə kodunu kopyalayırıq
 COPY . .
 
-# Client-i (frontend) build edirik
-RUN npm run build -w client
+# package.json faylındakı build skriptini işə salırıq
+# Bu, həm client (Vite), həm də server (esbuild) üçün build prosesini yerinə yetirəcək
+# və nəticələri "dist" qovluğuna yığacaq.
+RUN npm run build
 
-# Server-i (backend) build edirik (TypeScript -> JavaScript)
-RUN npm run build -w server
 
-# --- Mərhələ 3: Son, Production İmici ---
+# --- Mərhələ 2: Production Mərhələsi ---
+# Bu mərhələ yalnız proqramın işləməsi üçün lazım olan faylları götürür,
+# nəticədə kiçik və təhlükəsiz bir imic yaranır.
 FROM node:18-alpine
 WORKDIR /app
 
-# Yalnız production üçün lazım olan asılılıqları yükləyirik
-# Bu, son imicin ölçüsünü əhəmiyyətli dərəcədə kiçildir
-COPY package.json package-lock.json ./
-COPY client/package.json ./client/
-COPY server/package.json ./server/
-RUN npm install --omit=dev
+# Yalnız production üçün lazım olan asılılıqları yenidən yükləyirik
+COPY package*.json ./
+RUN npm install --omit=dev --ignore-scripts
 
-# "builder" mərhələsindən qurulmuş (build) faylları kopyalayırıq
-# 1. Qurulmuş Server kodu
-COPY --from=builder /app/server/dist ./server/dist
-# 2. Qurulmuş Client kodu
-COPY --from=builder /app/client/dist ./public
+# "build-stage" mərhələsindən build nəticəsi olan "dist" qovluğunu kopyalayırıq
+COPY --from=build-stage /app/dist ./dist
 
-# Tətbiqin işləyəcəyi portu xarici aləmə açırıq
+# Render-in təyin edəcəyi portu müəyyən edirik
 EXPOSE 5000
 
-# Tətbiqi işə salmaq üçün əmr
-# Qurulmuş JavaScript faylını işə salırıq
-CMD [ "node", "server/dist/src/index.js" ]
+# package.json faylındakı start skriptinə uyğun olaraq proqramı işə salırıq
+CMD [ "node", "dist/index.js" ]

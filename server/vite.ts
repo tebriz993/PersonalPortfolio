@@ -1,11 +1,11 @@
-// server/src/vite.ts
+// server/vite.ts (TAM VƏ DÜZƏLDİLMİŞ)
 
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../../vite.config"; // Dəyişiklik: yol düzəldildi
+import viteConfig from "../vite.config"; // server qovluğundan bir üst səviyyədəki konfiqurasiya
 import { nanoid } from "nanoid";
 
 const viteLogger = createLogger();
@@ -21,48 +21,25 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
+// Bu funksiya YALNIZ development rejimində işləyir və olduğu kimi qalır
 export async function setupVite(app: Express, server: Server) {
-  // Bu hissə development üçün olduğu kimi qalır
-  // ... (kod olduğu kimi qalır)
-  const serverOptions = {
-    middlewareMode: true,
-    hmr: { server },
-    allowedHosts: true,
-  };
-
   const vite = await createViteServer({
     ...viteConfig,
-    configFile: false,
-    customLogger: {
-      ...viteLogger,
-      error: (msg, options) => {
-        viteLogger.error(msg, options);
-        process.exit(1);
-      },
+    server: { 
+        middlewareMode: true,
+        hmr: { server } 
     },
-    server: serverOptions,
     appType: "custom",
   });
 
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
-
     try {
-      const clientTemplate = path.resolve(
-        process.cwd(), // Dəyişiklik: Daha etibarlı yol
-        "client",
-        "index.html",
-      );
-
-      // always reload the index.html file from disk incase it changes
+      const clientTemplate = path.resolve(process.cwd(), "client", "index.html");
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
-      template = template.replace(
-        `src="/src/main.tsx"`,
-        `src="/src/main.tsx?v=${nanoid()}"`,
-      );
-      const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      template = await vite.transformIndexHtml(url, template);
+      res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
       next(e);
@@ -70,26 +47,26 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
+// Bu funksiya YALNIZ production rejimində işləyir və düzəldilməlidir
 export function serveStatic(app: Express) {
-  // --- DƏYİŞİKLİK BURADADIR ---
-  // Docker build-dən sonra statik fayllar layihənin root-undakı "public" qovluğunda olacaq.
-  const distPath = path.resolve(process.cwd(), "public");
-
-  if (!fs.existsSync(distPath)) {
-    console.error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
-    );
-    // Xəta vermək əvəzinə, sadəcə 404 qaytaraq
+  // Sizin `vite build` əmriniz nəticələri `dist/client` qovluğuna yığır.
+  // `esbuild` isə serveri `dist/index.js`-ə.
+  // Biz compile olunmuş serverdən (dist/index.js) client-in olduğu qovluğa (dist/client) müraciət edirik.
+  const clientDistPath = path.resolve(process.cwd(), 'dist/client');
+  
+  if (!fs.existsSync(clientDistPath)) {
+    console.error(`Client build directory not found at: ${clientDistPath}`);
     app.use((_req, res) => {
-      res.status(404).send("Static assets not found. Build process might have failed.");
+        res.status(500).send("Server error: Client build not found.");
     });
     return;
   }
+  
+  // Statik faylları (CSS, JS, şəkillər) `dist/client` qovluğundan göstər
+  app.use(express.static(clientDistPath));
 
-  app.use(express.static(distPath));
-
-  // Bütün digər sorğuları index.html-ə yönləndiririk
+  // Bütün digər sorğuları `dist/client/index.html`-ə yönləndir ki, React Router işləsin
   app.get("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+    res.sendFile(path.resolve(clientDistPath, "index.html"));
   });
 }

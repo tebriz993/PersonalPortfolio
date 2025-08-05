@@ -1,9 +1,11 @@
+// server/src/vite.ts
+
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../vite.config";
+import viteConfig from "../../vite.config"; // Dəyişiklik: yol düzəldildi
 import { nanoid } from "nanoid";
 
 const viteLogger = createLogger();
@@ -20,6 +22,8 @@ export function log(message: string, source = "express") {
 }
 
 export async function setupVite(app: Express, server: Server) {
+  // Bu hissə development üçün olduğu kimi qalır
+  // ... (kod olduğu kimi qalır)
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
@@ -46,8 +50,7 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        import.meta.dirname,
-        "..",
+        process.cwd(), // Dəyişiklik: Daha etibarlı yol
         "client",
         "index.html",
       );
@@ -68,18 +71,25 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // --- DƏYİŞİKLİK BURADADIR ---
+  // Docker build-dən sonra statik fayllar layihənin root-undakı "public" qovluğunda olacaq.
+  const distPath = path.resolve(process.cwd(), "public");
 
   if (!fs.existsSync(distPath)) {
-    throw new Error(
+    console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
+    // Xəta vermək əvəzinə, sadəcə 404 qaytaraq
+    app.use((_req, res) => {
+      res.status(404).send("Static assets not found. Build process might have failed.");
+    });
+    return;
   }
 
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
+  // Bütün digər sorğuları index.html-ə yönləndiririk
+  app.get("*", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

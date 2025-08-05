@@ -1,24 +1,21 @@
-// vite.config.ts (TƏMİZLƏNMİŞ VƏ RENDER ÜÇÜN UYĞUN VERSİYA)
+// vite.config.ts (ALIAS ƏLAVƏ EDİLMİŞ SON VERSİYA)
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import path from 'path' // path modulunu import etməyi unutmayın!
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    // Replit-ə aid olan bütün plaginləri (cartographer, error-modal) buradan sildik!
   ],
+  // --- DƏYİŞİKLİK BURADADIR ---
+  // Vite-a aliasların harada olduğunu göstəririk
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './client/src'),
       '@shared': path.resolve(__dirname, './shared'),
     },
-  },
-  build: {
-    // Client kodunu dist/client qovluğuna yığırıq
-    outDir: 'dist/client',
   },
 })

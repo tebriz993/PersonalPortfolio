@@ -1,13 +1,14 @@
-// server/src/index.ts
+// server/index.ts (YENİ VƏ SON VERSİYA)
 
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+// DİQQƏT: vite ilə bağlı importları yuxarıdan silirik! Onları aşağıda dinamik import edəcəyik.
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware-lər olduğu kimi qalır...
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -30,14 +31,17 @@ app.use((req, res, next) => {
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
-      log(logLine);
+      
+      // log funksiyası vite.ts-dən gəldiyi üçün onu da dinamik import edəcəyik
+      // console.log istifadə edərək sadələşdirək
+      console.log(`[express] ${logLine}`);
     }
   });
 
   next();
 });
 
+// --- ƏSAS DƏYİŞİKLİK BURADADIR ---
 (async () => {
   const server = await registerRoutes(app);
 
@@ -49,22 +53,25 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // Mühiti yoxlayırıq
   if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
+    // Yalnız development-də vite ilə bağlı modulu dinamik import edirik
+    const viteModule = await import("./vite.js"); // .js uzantısı vacibdir!
+    await viteModule.setupVite(app, server);
+    console.log("Vite dev server is running.");
   } else {
-    serveStatic(app);
+    // Production-da isə başqa bir modulu import edirik
+    const viteModule = await import("./vite.js"); // .js uzantısı vacibdir!
+    viteModule.serveStatic(app);
+    console.log("Serving static files for production.");
   }
 
-  // --- DƏYİŞİKLİK BURADADIR ---
-  // Portu mühit dəyişənindən (environment variable) götürürük.
-  // Əgər təyin edilməyibsə, standart olaraq 5000 istifadə edirik.
   const port = process.env.PORT || 5000;
-
   server.listen({
-    port: Number(port), // portun string olmaması üçün Number() istifadə edirik
+    port: Number(port),
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
-    log(`serving on port ${port}`);
+    console.log(`Server listening on port ${port}`);
   });
 })();

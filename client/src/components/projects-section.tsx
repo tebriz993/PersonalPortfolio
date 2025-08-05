@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 // Project images
-import ecommerceImage from "@assets/ECommerceMicroservicePicture.png";
-import jobSearchImage from "@assets/JobSearchApp.png";
-import softwareVillageImage from "@assets/SoftwareVillage.png";
-import dendClubImage from "@assets/DendClub.png";
-import ecommerceAppImage from "@assets/ECommerceApp.png";
-import lawProjectImage from "@assets/LawProject.png";
-import shopECommerceImage from "@assets/ShopECommerce.png";
+import ecommerceImage from "/assets/ECommerceMicroservicePicture.png";
+import jobSearchImage from "/assets/JobSearchApp.png";
+import softwareVillageImage from "/assets/SoftwareVillage.png";
+import dendClubImage from "/assets/DendClub.png";
+import ecommerceAppImage from "/assets/ECommerceApp.png";
+import lawProjectImage from "/assets/LawProject.png";
+import shopECommerceImage from "/assets/ShopECommerce.png";
 
 // Featured Projects
 const staticProjects = [

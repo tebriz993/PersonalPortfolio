@@ -1,29 +1,23 @@
-// vite.config.ts (SON DÜZƏLİŞ)
+// vite.config.ts (SADƏLƏŞDİRİLMİŞ)
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import path from 'path' // path modulunu import etməyi unutmayın!
 
-// Bu konfiqurasiya `vite build client` əmri ilə işləmək üçün nəzərdə tutulub.
 export default defineConfig({
+  root: 'client', // Vite-a client qovluğunu göstəririk
   plugins: [
-    react(),
-    tailwindcss(),
+    react() 
+    // Tailwind plagini avtomatik olaraq postcss.config.js-dən oxunmalıdır, 
+    // əgər yenə problem olsa, bura əlavə edərik.
   ],
-  
   resolve: {
-    // Aliaslarımızı təyin edirik ki, Vite `@/` işarəsini tanıya bilsin.
     alias: {
       '@': path.resolve(__dirname, 'client/src'),
       '@shared': path.resolve(__dirname, 'shared'),
     },
   },
-
   build: {
-    // `vite build client` əmri onsuz da `client` qovluğunu kök götürür.
-    // Nəticəni layihənin əsas kökündəki `dist/client` qovluğuna yazırıq.
-    // Bu, `esbuild`-in yaratdığı `dist` qovluğu ilə qarışmaması üçün vacibdir.
-    outDir: 'dist/client',
+    outDir: '../dist/client'
   }
 })
